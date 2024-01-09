@@ -1,0 +1,145 @@
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    border: none
+    outline: none
+
+$prime: #EAB32F
+
+.container
+    max-width: 1490px
+    width: 100%
+    margin: 0 auto
+    padding: 0 15px
+
+h1,.h1
+    font-size: 24px
+    font-style: normal
+    font-weight: 500
+    margin: 0 0 24px
+
+h2,.h2
+    font-size: 32px
+    font-weight: 500
+    margin-bottom: 32px
+
+body
+    min-height: 100vh
+    color: #fff
+    font-size: 14px
+    background-color: #121112
+    font-family: 'Poppins', sans-serif
+    scroll-behavior: smooth
+    position: relative
+    z-index: 1
+    &.active
+        overflow: hidden
+
+section
+    padding: 35px 0
+
+p
+    font-size: 18px
+    line-height: 130%
+
+img
+    max-width: 100%
+
+a,
+button
+    color: #000
+    text-decoration: none
+    transition: all ease .3s
+    background-color: transparent
+    &:active
+        transform: scale(.98)
+
+    &:hover
+        opacity: .8
+
+mark
+    background: transparent
+    color: #EAB32F
+
+.btn
+    display: inline-block
+    padding: 10px 62px 8px
+    color: #FFF
+
+    font-size: 24.531px
+    font-weight: 600
+    line-height: 120%
+
+    border-top: 1px solid #332D1D
+    border-bottom: 1px solid #332D1D
+    background-color: #1C1C1C
+    position: relative
+    z-index: 1
+    background-image: url('../img/c-1.svg'), url('../img/c-2.svg'), url('../img/c-3.svg'), url('../img/c-4.svg')
+    background-repeat: no-repeat
+    background-position: left top, right top, right bottom, left bottom
+
+    &::before
+        content: ''
+        display: block
+        position: absolute
+        width: calc( 100% - 10px )
+        height: calc( 100% - 10px )
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: -11
+        border: 1px solid #EEAE2E
+        background: linear-gradient(91deg, #6C541B 0%, #2E2816 23.93%, #362D16 36.59%, #3D3216 52.44%, #352C16 74.42%, #2E2816 88.94%, #765B1B 100%)
+
+input, select
+    appearance: none
+    border-radius: 12px
+    border: 1px solid rgba(36, 36, 36, 0.07)
+    height: 50px
+    display: block
+    width: 100%
+    margin-bottom: 16px
+    color: #000
+    padding: 0 18px
+    &:placeholder
+        color: #717171
+
+select
+    background-image: url('../img/arrow_down.svg')
+    background-repeat: no-repeat
+    background-position: center right 18px
+    background-size: 20px auto
+
+.wrap
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    align-items: center
+
+.nowrap
+    white-space: nowrap
+
+.select
+    display: inline-block
+    img
+        display: block
+        width: 100%
+        aspect-ratio: 1/1
+
+    .option
+        display: none
+        width: 55px
+        &.active
+            display: block
+
+@media screen and ( max-width: 1250px )
+    .select
+        .option
+            width: 45px
+
+@media screen and ( max-width: 700px )
+    .select
+        .option
+            width: 25px

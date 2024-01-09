@@ -1,0 +1,62 @@
+.header
+    background-color: #181818
+    padding: 10px 0
+    nav
+        a
+            display: block
+            color: white
+            font-size: 22px
+            font-weight: 500
+            line-height: 120%
+            padding: 30px 15px
+
+    .logo
+        display: block
+        max-width: 320px
+        img
+            display: block
+
+    .right
+        width: 400px
+        gap: 24px
+        justify-content: flex-end
+
+    @media screen and ( max-width: 1250px )
+        padding: 20px 0
+        nav
+            a
+                font-size: 18px
+                padding: 15px 10px
+
+        .logo
+            max-width: 230px
+
+        .right
+            width: unset
+
+    @media screen and ( max-width: 1000px )
+        nav
+            display: none
+
+        .right
+            flex-direction: row-reverse
+
+    @media screen and ( max-width: 700px )
+        padding: 14px 0
+        .right
+            gap: 10px
+            justify-content: flex-start
+            width: calc( 100% - 150px )
+
+        .btn
+            font-size: 10px
+            padding: 6px 30px 4px
+            background-size: 15px auto, 6px auto, 15px auto, 6px auto
+            &::before
+                width: calc( 100% - 6px )
+                height: calc( 100% - 6px )
+                border-width: 1px
+
+        .logo
+            max-width: 150px
+            width: 50%
