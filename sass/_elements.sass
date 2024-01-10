@@ -20,9 +20,10 @@ h1,.h1
     margin: 0 0 24px
 
 h2,.h2
-    font-size: 32px
+    font-size: 30px
     font-weight: 500
-    margin-bottom: 32px
+    line-height: 120%
+    margin-bottom: 56px
 
 body
     min-height: 100vh
@@ -71,9 +72,18 @@ mark
     font-weight: 600
     line-height: 120%
 
-    border-top: 1px solid #332D1D
-    border-bottom: 1px solid #332D1D
     background-color: #1C1C1C
+
+    &:hover
+        &::after
+            width: 100%
+            height: 100%
+
+.cr
+    text-align: center
+    padding: 11px 30px 10px
+    display: inline-block
+    min-width: 230px
     position: relative
     z-index: 1
     background-image: url('../img/c-1.svg'), url('../img/c-2.svg'), url('../img/c-3.svg'), url('../img/c-4.svg')
@@ -84,12 +94,25 @@ mark
         content: ''
         display: block
         position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        // border-top: 1px solid #332D1D
+        // border-bottom: 1px solid #332D1D
+        z-index: -11
+
+    &::after
+        transition: all ease .2s
+        content: ''
+        display: block
+        position: absolute
         width: calc( 100% - 10px )
         height: calc( 100% - 10px )
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
-        z-index: -11
+        z-index: -1
         border: 1px solid #EEAE2E
         background: linear-gradient(91deg, #6C541B 0%, #2E2816 23.93%, #362D16 36.59%, #3D3216 52.44%, #352C16 74.42%, #2E2816 88.94%, #765B1B 100%)
 

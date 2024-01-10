@@ -4,5 +4,48 @@
 @import 'slick'
 @import 'modal'
 
-.hero
-    
+.plan
+    width: 32%
+    text-align: center
+    background: rgba(1, 1, 1, 0.93)
+    padding: 0 0 37px
+    position: relative
+    z-index: 1
+    &::before
+        content: ''
+        display: block
+        width: calc( 100% - 16px )
+        height: calc( 100% - 16px )
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -111
+        border: 8px solid #282626
+
+    &__text
+        font-size: 15px
+        font-style: normal
+        font-weight: 600
+        line-height: 120%
+        margin-bottom: 10px
+
+    &__head
+        display: block
+        line-height: 120%
+        font-size: 36px
+        margin-bottom: 6px
+
+    &__heading
+        font-size: 24px
+        color: $prime
+        margin: 0 0 45px
+        &::after
+            border: none
+
+    &__footer
+        margin-top: 20px
+        color: $prime
+        b
+            font-size: 37px
+            display: block
+            margin-bottom: 10px
