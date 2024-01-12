@@ -4,48 +4,269 @@
 @import 'slick'
 @import 'modal'
 
+.plans
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-image: url('../img/plans.jpg')
+
 .plan
-    width: 32%
+    width: 32.5%
     text-align: center
     background: rgba(1, 1, 1, 0.93)
-    padding: 0 0 37px
+    padding: 0 20px 40px
     position: relative
     z-index: 1
-    &::before
+    overflow: hidden
+    transition: all ease .3s
+    @media screen and ( min-width: 1000px )
+        &:hover
+            transform: scale(1.04)
+
+    &::before,
+    &::after
         content: ''
         display: block
-        width: calc( 100% - 16px )
-        height: calc( 100% - 16px )
         position: absolute
+        pointer-events: none
         top: 0
         left: 0
-        z-index: -111
+        z-index: -1
+
+    &::before
+        width: 100%
+        height: 100%
+        background-image: url('../img/pc-1.svg'), url('../img/pc-2.svg'), url('../img/pc-3.svg'), url('../img/pc-4.svg')
+        background-repeat: no-repeat
+        background-position: left top, right top, right bottom, left bottom
+
+    &::after
+        width: calc( 100% - 16px )
+        height: calc( 100% - 16px )
         border: 8px solid #282626
+        z-index: -1111
 
     &__text
-        font-size: 15px
+        font-size: 14px
         font-style: normal
-        font-weight: 600
+        font-weight: 500
         line-height: 120%
-        margin-bottom: 10px
+        margin-bottom: 15px
 
     &__head
         display: block
         line-height: 120%
-        font-size: 36px
+        font-size: 32px
         margin-bottom: 6px
 
     &__heading
-        font-size: 24px
+        min-width: unset
+        width: 280px
+        max-width: 80%
+        font-size: 23px
+        line-height: 120%
         color: $prime
         margin: 0 0 45px
+        padding: 9px 30px 10px
+        box-shadow: 0px 21px 54px -18px $prime
         &::after
             border: none
 
     &__footer
+        font-size: 14px
+        line-height: 150%
         margin-top: 20px
         color: $prime
+        position: relative
+        z-index: 1
         b
             font-size: 37px
             display: block
+            margin-bottom: 5px
+
+        &::before,
+        &::after
+            content: ''
+            display: block
+            width: 105px
+            height: 105px
+            border-radius: 50%
+            background-color: $prime
+            position: absolute
+            top: 150%
+            right: 0
+            filter: blur(38px)
+
+        &::after
+            left: 0
+
+    @media screen and ( max-width: 1500px )
+        &__heading
+            font-size: 20px
+
+        &__head
+            font-size: 24px
+
+        &__footer b
+            font-size: 26px
+            margin-bottom: 3px
+
+    @media screen and ( max-width: 900px )
+        width: 48%
+        &-wrap
+            gap: 40px 4%
+            justify-content: center
+
+    @media screen and ( max-width: 700px )
+        width: 100%
+        &__heading
+            width: 200px
+        &__text
+            font-size: 10px
+
+.offers
+    h2
+        margin-bottom: 33px
+.offer
+    width: 24%
+    position: relative
+    z-index: 1
+    overflow: hidden
+    transition: all ease .3s
+    padding: 8px
+    min-height: 308px
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    &::before,
+    &::after
+        content: ''
+        display: block
+        position: absolute
+        pointer-events: none
+        top: 0
+        left: 0
+        z-index: -1
+
+    &::before
+        width: 100%
+        height: 100%
+        background-image: url('../img/pc-1.svg'), url('../img/pc-3.svg'),
+        background-repeat: no-repeat
+        background-position: left top, right bottom,
+    &::after
+        width: calc( 100% - 16px )
+        height: calc( 100% - 16px )
+        border: 9px solid #282626
+        z-index: -1111
+
+    &__heading
+        font-size: 29px
+        font-weight: 700
+        line-height: 130%
+        padding: 0 0 6px
+        margin-bottom: 9px
+        border-bottom: 1px solid $prime
+
+    &__text
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 130%
+
+    &__bg
+        position: absolute
+        top: 8px
+        left: 8px
+        z-index: -111
+        object-fit: cover
+        width: calc( 100% - 16px )
+        height: calc( 100% - 16px )
+        background-color: #000
+
+    &-title
+        padding: 7px 10px 10px
+        text-align: center
+        background: rgba(1, 1, 1, 0.75)
+        position: relative
+        &::before,
+        &::after
+            content: ''
+            display: block
+            width: 105px
+            height: 105px
+            border-radius: 50%
+            background-color: $prime
+            position: absolute
+            top: 100%
+            right: -80px
+            filter: blur(38px)
+
+        &::after
+            left: -50px
+
+    a
+        padding: 9px
+        display: block
+        text-decoration: underline
+        color: white
+        &:hover
+            text-decoration: none
+
+    @media screen and ( max-width: 1100px )
+        width: 49%
+        &-wrap
+            gap: 40px 2%
+            max-width: 800px
+            margin: 0 auto
+
+    @media screen and ( max-width: 700px )
+        display: block
+        width: 100%
+        min-height: unset
+        padding: 6px
+        &-wrap 
+            gap: 20px
+            
+        &::after
+            top: 0
+            left: 0
+            width: calc(100% - 12px)
+            height: calc(100% - 12px)
+            border-width: 6px
+        &__bg
+            top: 6px
+            width: 45%
+            right: 6px
+            height: calc(100% - 12px)
+            left: auto
+            object-position: center center
+
+        &__text
+
+        &-title
+            padding: 20px 0 0px 20px
+            text-align: left
+            width: 55%
+            background-color: rgba(0,0,0,1)
+            box-shadow: 11px 0px 20px 12px rgba(0,0,0,.95)
+        
+            &::before
+                right: auto 
+                left: 100%
+                z-index: -111
+
+            &::after
+                left: 0
+
+        &__heading
+            border: none
+            padding: 0
             margin-bottom: 10px
+            font-size: 22px
+
+        a
+            width: 90%
+            margin-top: 10px
+            border-top: 1px solid $prime
+            padding: 23px 10px 20px 0

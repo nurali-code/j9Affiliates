@@ -12,6 +12,8 @@ $prime: #EAB32F
     width: 100%
     margin: 0 auto
     padding: 0 15px
+    @media screen and ( max-width: 1500px )
+        max-width: 1190px
 
 h1,.h1
     font-size: 24px
@@ -24,6 +26,7 @@ h2,.h2
     font-weight: 500
     line-height: 120%
     margin-bottom: 56px
+    min-width: 310px
 
 body
     min-height: 100vh
@@ -76,45 +79,52 @@ mark
 
     &:hover
         &::after
-            width: 100%
-            height: 100%
+            width: 100% !important
+            height: 100% !important
+        &::before
+            width: 95%
+            height: 95%
 
 .cr
     text-align: center
     padding: 11px 30px 10px
     display: inline-block
-    min-width: 230px
+    // min-width: 230px
     position: relative
     z-index: 1
-    background-image: url('../img/c-1.svg'), url('../img/c-2.svg'), url('../img/c-3.svg'), url('../img/c-4.svg')
-    background-repeat: no-repeat
-    background-position: left top, right top, right bottom, left bottom
+    background-color: #000
+    border-top: 2px solid #332D1D
+    border-bottom: 2px solid #332D1D
 
-    &::before
-        content: ''
-        display: block
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        // border-top: 1px solid #332D1D
-        // border-bottom: 1px solid #332D1D
-        z-index: -11
-
+    &::before,
     &::after
-        transition: all ease .2s
         content: ''
         display: block
         position: absolute
-        width: calc( 100% - 10px )
-        height: calc( 100% - 10px )
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
+        z-index: -11
+        transition: all ease .2s
+        pointer-events: none
+
+    &::before
+        width: 100%
+        height: calc( 100% + 3.5px )
+        background-image: url('../img/c-1.svg'), url('../img/c-2.svg'), url('../img/c-3.svg'), url('../img/c-4.svg')
+        background-repeat: no-repeat
+        background-position: left top, right top, right bottom, left bottom
+
+    &::after
+        width: calc( 100% - 10px )
+        height: calc( 100% - 10px )
         z-index: -1
         border: 1px solid #EEAE2E
         background: linear-gradient(91deg, #6C541B 0%, #2E2816 23.93%, #362D16 36.59%, #3D3216 52.44%, #352C16 74.42%, #2E2816 88.94%, #765B1B 100%)
+
+.heading
+    &::after
+        display: none
 
 input, select
     appearance: none
@@ -162,7 +172,15 @@ select
         .option
             width: 45px
 
+@media screen and ( max-width: 1000px )
+    .cr
+        min-width: unset
+
 @media screen and ( max-width: 700px )
     .select
         .option
             width: 25px
+
+    h2,.h2
+        font-size: 16px
+        margin-bottom: 36px

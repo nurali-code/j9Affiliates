@@ -25,6 +25,10 @@
         gap: 24px
         justify-content: flex-end
 
+    @media screen and ( max-width: 1500px )
+        .container
+            max-width: 100%
+
     @media screen and ( max-width: 1250px )
         padding: 20px 0
         nav
@@ -53,10 +57,14 @@
             width: calc( 100% - 150px )
 
         .btn
+            min-width: unset
             font-size: 10px
-            padding: 6px 30px 4px
-            background-size: 15px auto, 6px auto, 15px auto, 6px auto
+            padding: 7px 30px 5px
+            border-width: 1px
             &::before
+                background-size: 15px auto, 6px auto, 15px auto, 6px auto
+                height: calc(100% + 2px)
+            &::after
                 width: calc( 100% - 6px )
                 height: calc( 100% - 6px )
                 border-width: 1px
