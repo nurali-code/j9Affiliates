@@ -150,8 +150,42 @@ select
     flex-wrap: wrap
     align-items: center
 
+ul
+    list-style: none
+
 .nowrap
     white-space: nowrap
+
+.video
+    position: relative
+    z-index: 1
+video
+    display: block
+    width: 100%
+    aspect-ratio: 16/10
+    margin: 0
+    object-fit: cover
+
+.btnPlay
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    z-index: 1
+    width: 200px
+    height: 200px
+    border-radius: 20px
+    background-color: transparent
+    background-image: url('../img/play.png')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: contain
+    &:active
+        transform: translate(-50%,-50%) scale(.95)
+
+.full
+    video
+        aspect-ratio: 19/8
 
 .select
     display: inline-block

@@ -4,50 +4,34 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top, }, 300,)
     });
 
-    $('.btn-menu').on('click', function (e) {
-        $(this).toggleClass('active');
-        $('.header .nav, body').toggleClass('active');
-    });
+    // $('.direction-slider').slick({
+    //     arrows: false,
+    //     infinite: true,
+    //     dots: true,
+    //     speed: 600,
+    //     slidesToShow: 1,
+    //     centerPadding: '0px',
+    //     autoplay: true,
+    //     autoplaySpeed: 3000,
+    //     centerMode: true,
+    //     mobileFirst: true,
+    //     responsive: [
+    //         {
+    //             breakpoint: 1000,
+    //             settings: "unslick",
+    //         },
+    //     ]
+    // });
 
-    $('.hero-slider').slick({
-        arrows: true,
-        infinite: true,
-        speed: 600,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        slidesToShow: 1,
-        centerPadding: '0px',
-        centerMode: true,
-    });
-
-    $('.direction-slider').slick({
-        arrows: false,
-        infinite: true,
-        dots: true,
-        speed: 600,
-        slidesToShow: 1,
-        centerPadding: '0px',
-        autoplay: true,
-        autoplaySpeed: 3000,
-        centerMode: true,
-        mobileFirst: true,
-        responsive: [
-            {
-                breakpoint: 1000,
-                settings: "unslick",
-            },
-        ]
-    });
-
-    function hideModals() {
-        $('.modal').fadeOut();
-        $('body, .header .nav, .btn-menu').removeClass('active');
-    };
 
     $(function () {
+        function hideModals() {
+            $('.modal').fadeOut();
+            $('body, .header .nav, .btn-menu').removeClass('active');
+        };
+
         function showModal(id) {
-            $(id).fadeIn(300);
-            $('body').addClass('active');
+            $(id).fadeIn(300); $('body').addClass('active');
         }
 
         $('[data-modal]').on('click', function (e) {
@@ -70,18 +54,6 @@ $(document).ready(function () {
                 hideModals();
             }
         });
-    });
-
-    $('.youth').slick({
-        arrows: true,
-        infinite: true,
-        dots: false,
-        slidesToShow: 1,
-        speed: 600,
-        centerPadding: '0px',
-        autoplay: true,
-        autoplaySpeed: 2000,
-        centerMode: true,
     });
 
 

@@ -48,7 +48,6 @@
 
     &__text
         font-size: 14px
-        font-style: normal
         font-weight: 500
         line-height: 120%
         margin-bottom: 15px
@@ -124,9 +123,123 @@
         &__text
             font-size: 10px
 
+.about
+    background-color: #121519
+    h2
+        margin-bottom: 40px
+    &__heading
+        font-size: 40px
+        font-weight: 500
+        line-height: 130%
+        color: $prime
+        margin: 0 0 33px
+
+    &__text
+        font-size: 25px
+        font-weight: 500
+        line-height: 130%
+        margin: 0 0 46px
+
+.ussers
+    &-wrap
+        align-items: stretch
+        padding-top: 12px
+    &-item
+        max-width: 19.5%
+        font-size: 20px
+        font-weight: 500
+        line-height: 130%
+        padding: 11px 23px 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px
+        overflow: hidden
+        &::before
+            background-image: url("../img/pc-1.svg"),url("../img/pc-3.svg")
+            background-position: left top,right bottom
+            background-size: 36px auto, 36px auto
+        &::after
+            display: none
+
+.features
+    &-wrap
+        justify-content: center
+        padding-top: 55px
+    &-item
+        text-align: center
+        padding: 10px 40px
+        border-right: 2px solid $prime
+        &:last-child
+            border: none
+        b
+            font-size: 32px
+            line-height: 130%
+            font-weight: 800
+            display: block
+
+        span
+            opacity: .5
+            font-size: 21px
+
+.bg
+    background-image: url('../img/bg.jpg')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    padding-bottom: 50px
+
+
+
+.providers
+    &-wrap
+        .video
+            width: 60%
+            border-radius: 12px
+
+    &-list
+        width: 34%
+        align-items: stretch
+        gap: 20px 2%
+
+    li
+        width: 48%
+        height: 63px
+        border-radius: 12px
+        border-top: 2px solid #2E2816
+        border-bottom: 2px solid #2E2816
+        background-color: #1C1C1C
+        text-align: center
+        padding: 3px 10px
+        &:first-child
+            height: unset
+            width: 100%
+            height: 111px
+
+        img
+            max-width: 70%
+            height: 100%
+            object-fit: contain
+            display: block
+            margin: 0 auto
+
+.testimonial
+    width: 95%
+    max-width: 1640px
+    margin: 0 auto
+    padding: 45px 0
+    background: linear-gradient(270deg, rgba(18, 21, 29, 0.80) 0.07%, rgba(15, 16, 18, 0.80) 16.71%, rgba(15, 16, 18, 0.80) 74.43%, rgba(19, 22, 29, 0.80) 99.91%)
+    h2 
+        margin-bottom: 28px
+    &-slider
+        gap: 38px
+        flex-wrap: nowrap
+
 .offers
+    background: linear-gradient(270deg, #12151D 0.07%, #0F1012 16.71%, #0F1012 74.43%, #13161D 99.91%)
     h2
         margin-bottom: 33px
+
 .offer
     width: 24%
     position: relative
@@ -170,7 +283,6 @@
 
     &__text
         font-size: 14px
-        font-style: normal
         font-weight: 400
         line-height: 130%
 
@@ -271,7 +383,49 @@
             border-top: 1px solid $prime
             padding: 23px 10px 20px 0
 
+.review
+    width: 483px
+    padding: 31px 33px 0
+    border-radius: 10px
+    border-top: 5px solid #2E2816
+    border-bottom: 5px solid #2E2816
+    background: linear-gradient(180deg, rgba(167, 108, 10, 0.02) 0%, rgba(253, 249, 192, 0.21) 100%)
+    &::after
+        content: ''
+        display: block
+        width: 100%
+        height: 58px
+        background-image: url('../img/stars.svg')
+        background-repeat: no-repeat
+        background-position: left bottom 20px
+    &-header
+        gap: 19px
+        justify-content: flex-start
+        margin-bottom: 16px
+        img
+            width: 75px
+            border-radius: 50%
+            aspect-ratio: 1/1
+        b
+            font-size: 19px
+            font-weight: 500
+            line-height: 120%
+            display: block
+
+    &-title
+        font-size: 10px
+        font-weight: 500
+        line-height: 120%
+
+    &__text
+        font-size: 15px
+        font-weight: 400
+        line-height: 120%
+        padding-bottom: 10px
+        border-bottom: 1px solid $prime
+
 .faq
+    background-color: #121519
     h2
         margin-bottom: 32px
 
