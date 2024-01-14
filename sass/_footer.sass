@@ -1,0 +1,63 @@
+.footer
+    padding: 46px 0
+    &__text
+        color: white
+        font-size: 25px
+        font-weight: 400
+        line-height: 130%
+
+    .logos
+        max-width: 50%
+        flex-wrap: nowrap
+
+    .logo
+        max-width: 330px
+
+    a
+        &:hover
+            text-decoration: underline
+
+    @media screen and ( max-width: 1500px )
+        .logos
+            max-width: 40%
+            img
+                &:first-child
+                    max-width: 25%
+                &:last-child
+                    max-width: 15%
+
+        .logo
+            max-width: 260px
+
+    @media screen and ( max-width: 1100px )
+        .container
+            max-width: 700px
+
+        &__text
+            order: 2
+            font-size: 20px
+
+        .logos
+            width: 100%
+            max-width: 80%
+            margin: 0 auto 40px
+            order: 1
+
+    @media screen and ( max-width: 700px )
+        padding-bottom: 20px
+        .logo
+            width: 150px
+
+        &__text 
+            font-size: 14px
+            width: 100%
+            text-align: center
+            margin-bottom: 10px
+
+        .logos
+            margin-bottom: 30px
+            img
+                &:first-child
+                    max-width: 74px
+                &:last-child
+                    max-width: 43px

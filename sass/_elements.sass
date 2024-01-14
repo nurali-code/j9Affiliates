@@ -127,16 +127,89 @@ mark
 
 input, select
     appearance: none
-    border-radius: 12px
-    border: 1px solid rgba(36, 36, 36, 0.07)
-    height: 50px
+    border-radius: 10px
+    background-color: #1C1C1C
+    height: 64px
     display: block
     width: 100%
     margin-bottom: 16px
-    color: #000
     padding: 0 18px
+    font-size: 17px
+    font-weight: 300
+    line-height: 130%
+    color: white
     &:placeholder
-        color: #717171
+        color: rgba(255, 255, 255, .5)
+
+    @media screen and ( max-width: 700px )
+        height: 40px
+        padding: 0 10px
+        font-size: 10px
+
+.inp-wrap
+    background-color: #1C1C1C
+    align-items: center
+    padding: 0 20px
+    border-radius: 5px
+    border-top: 4px solid #2E2816
+    border-right: 2px solid #2E2816
+    border-bottom: 4px solid #2E2816
+    border-left: 2px solid #2E2816
+    margin-bottom: 19px
+
+    img
+        width: 30px
+        height: 30px
+        object-fit: contain
+
+    input
+        width: calc( 100% - 30px )
+        margin: 0
+
+    @media screen and ( max-width: 1100px )
+        border-radius: 3.036px
+        border-top: 2px solid #2E2816
+        border-right: 1px solid #2E2816
+        border-bottom: 2px solid #2E2816
+        border-left: 1px solid #2E2816
+        background: #1C1C1C
+        margin-bottom: 7px
+    @media screen and ( max-width: 700px )
+        padding: 0 14px
+        img
+            width: 21px
+            height: 21px
+
+        input
+            width: calc( 100% - 21px )
+
+textarea
+    font-size: 17px
+    font-weight: 300
+    line-height: 130%
+    width: 100%
+    resize: none
+    background-color: #1C1C1C
+    border-radius: 5px
+    border-top: 4px solid #2E2816
+    border-right: 2px solid #2E2816
+    border-bottom: 4px solid #2E2816
+    border-left: 2px solid #2E2816
+    padding: 20px 10px 20px 72px
+    margin-bottom: 30px
+    &:placeholder
+        color: rgba(255, 255, 255, .5)
+
+    @media screen and ( max-width: 1100px )
+        border-top: 2px solid #2E2816
+        border-right: 1px solid #2E2816
+        border-bottom: 2px solid #2E2816
+        border-left: 1px solid #2E2816
+        margin-bottom: 10px
+
+    @media screen and ( max-width: 700px )
+        font-size: 10px
+        padding-left: 47px
 
 select
     background-image: url('../img/arrow_down.svg')

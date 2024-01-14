@@ -3,6 +3,182 @@
 @import 'header'
 @import 'slick'
 @import 'modal'
+@import 'footer'
+
+.main
+    .container
+        padding-top: 60px
+        padding-bottom: 60px
+
+    .col
+        width: 35%
+
+    .level_up
+        width: 440px
+        padding: 37px 5px
+        background: #060606
+        position: relative
+        text-align: center
+        z-index: 1
+        overflow: hidden
+        &::before,
+        &::after
+            content: ''
+            display: block
+            position: absolute
+            pointer-events: none
+            top: 0
+            left: 0
+            z-index: -1
+
+        &::before
+            width: 100%
+            height: 100%
+            background-image: url('../img/pc-1.svg'), url('../img/pc-2.svg'), url('../img/pc-3.svg'), url('../img/pc-4.svg')
+            background-repeat: no-repeat
+            background-position: left top, right top, right bottom, left bottom
+            background-size: 47px auto
+
+        &::after
+            width: calc( 100% - 22px )
+            height: calc( 100% - 22px )
+            border: 11px solid #282626
+            z-index: -1111
+
+        img
+            max-width: 80%
+            display: block
+            margin: 0 auto
+
+        &__heading
+            color: #FFF
+            text-align: center
+            text-shadow: 0px 2px 0px $prime
+            font-family: Poppins
+            font-size: 31px
+            font-style: normal
+            font-weight: 800
+            line-height: 115%
+            margin: 0 0 10px
+            &::before,
+            &::after
+                content: ''
+                display: block
+                width: 105px
+                height: 105px
+                border-radius: 50%
+                background-color: $prime
+                position: absolute
+                top: 90%
+                right: -10%
+                filter: blur(38px)
+
+            &::after
+                left: -10%
+
+        .btn
+            font-size: 19px
+
+    h1
+        font-size: 70px
+        font-style: normal
+        font-weight: 800
+        line-height: 120%
+        margin-bottom: 15px
+
+        mark
+            background: linear-gradient(180deg, #EDBC32 20%, #A86D0B 70%)
+            background-clip: text
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+
+    p
+        font-size: 25px
+        font-weight: 400
+        line-height: 135%
+        margin: 0 0 45px
+
+    .btn
+        font-size: 20px
+        padding: 16px 45px 14px
+        &::after
+            border: none
+
+    @media screen and ( max-width: 1500px )
+        h1
+            font-size: 58px
+        p
+            font-size: 20px
+        .level_up
+            width: 340px
+            &::after
+                width: calc( 100% - 16px )
+                height: calc( 100% - 16px )
+                border: 8px solid #282626
+            &__heading
+                font-size: 24px
+                text-shadow: rgb(234 179 47) 0px 1px 0px
+
+            .btn
+                font-size: 16px
+                padding: 16px 30px 14px
+
+    @media screen and ( max-width: 1100px )
+        .container
+            display: block
+
+        .col, .level_up
+            width: 100%
+
+        h1
+            margin-bottom: 9px
+
+        .col
+            text-align: center
+
+        .level_up
+            text-align: left
+            padding: 20px
+            max-width: 600px
+            margin: 40px auto 0
+            &__heading
+                max-width: 50%
+                text-align: left
+                margin-bottom: 20px
+            img
+                position: absolute
+                top: 8px
+                right: 8px
+                width: 210px
+                max-width: 50%
+                height: calc( 100% - 16px )
+                z-index: -1
+                object-fit: cover
+
+    @media screen and ( max-width: 700px )
+        h1
+            font-size: 44px
+            margin-bottom: 7px
+
+        p
+            font-size: 19px
+
+        .level_up
+            &__heading
+                font-size: 20px
+                margin-bottom: 7px
+
+            .btn
+                font-size: 10px
+                padding: 8px 22px 6px
+                border-width: 1px
+                &::before
+                    background-size: 15px auto, 6px auto, 15px auto, 6px auto
+                    height: calc(100% + 2px)
+                &::after
+                    width: calc( 100% - 8px )
+                    height: calc( 100% - 8px )
+                    border-width: 1px
 
 .plans
     overflow: hidden
@@ -12,6 +188,10 @@
     background-image: url('../img/plans.jpg')
     h2
         margin-bottom: 40px
+
+    .slick
+        &-arrow
+            background-image: url('../img/slick_arrow-black.svg')
 
     @media screen and ( max-width: 1224px )
         .slick
@@ -204,6 +384,7 @@
     &-wrap
         align-items: stretch
         padding-top: 12px
+
     &-item
         max-width: 19.5%
         font-size: 20px
@@ -214,11 +395,12 @@
         align-items: center
         justify-content: center
         border-radius: 5px
-        overflow: hidden
         &::before
+            border-radius: 5px
             background-image: url("../img/pc-1.svg"),url("../img/pc-3.svg")
             background-position: left top,right bottom
             background-size: 36px auto, 36px auto
+            overflow: hidden
         &::after
             display: none
 
@@ -232,12 +414,13 @@
             gap: 12px 2%
 
         &-item
-            width: 49%
+            width: 48%
+            padding: 11px 10px 10px
             max-width: unset
             &:last-child
                 width: 100%
 
-    @media screen and ( max-width: 1100px )
+    @media screen and ( max-width: 700px )
         &-item
             font-size: 15px
 
@@ -666,12 +849,138 @@
 
     @media screen and ( max-width: 700px )
         &-btn
-            padding: 9px 38px 9px 18px
+            padding: 10px 38px 10px 18px
             font-size: 14px
             font-weight: 500
             background-position: center right 17px
             background-size: 11px auto
 
         &-content
-            padding: 0px 18px 8px
+            padding: 0px 18px 12px
             font-size: 13px
+
+.contacts
+    @media screen and ( min-width: 1100px  )
+        background-color: #100C09
+
+    .btn
+        width: 100%
+        padding: 19px 30px 18px
+        &::after
+            border: none
+
+    .col
+        width: 55%
+        &:first-child
+            width: 40%
+
+        &-img
+            img
+                display: block
+                width: 100%
+
+        &__heading
+            text-align: center
+            color: #E4BE8D
+            font-size: 25px
+            font-weight: 400
+            line-height: 130%
+            margin: 0 0 34px
+
+    .qr
+        &__link
+            text-align: center
+            display: block
+            margin: 0 auto
+        &-wrap
+            text-align: center
+            margin-bottom: 34px
+
+        &-title
+            padding: 30px 0
+            width: 53%
+            border-left: 1px solid #E4BE8D
+
+            .col__heading
+                margin: 0
+
+    .social
+        text-align: center
+        a
+            width: 66px
+            height: 64px
+            padding: 10px
+            display: inline-block
+            border-radius: 11px
+            border: 2px solid #E5BD8D
+            background: rgba(34, 38, 50, 0)
+            &:hover
+                background: rgba(34, 38, 50, 1)
+
+        img
+            display: block
+            margin: 0 auto
+            max-width: 100%
+            max-height: 100%
+
+    @media screen and ( max-width: 1500px )
+        .col
+            &__heading
+                font-size: 19px
+                margin-bottom: 24px
+
+    @media screen and ( max-width: 1100px )
+        padding-bottom: 0
+        h2
+            margin-bottom: 20px
+        .col
+            width: 100%
+            &:first-child
+                width: 100%
+                border-bottom: 1px solid $prime
+                padding-bottom: 16px
+
+            &-img
+                width: 100vw
+                position: relative
+                left: -15px
+                padding: 10px
+                background-color: #100C09
+                img
+                    max-width: 65%
+                    margin: 0 auto
+
+    @media screen and ( max-width: 700px )
+        .col
+            &__heading
+                font-size: 9px
+                margin-bottom: 20px
+
+        .btn
+            font-size: 18px
+            padding: 12px 30px 10px
+
+        .social
+            padding: 10px 0
+            justify-content: center
+            gap: 11px
+            border-top: 1px solid rgba($prime, .5)
+            border-bottom: 1px solid rgba($prime, .5)
+            a
+                border-width: 1px
+                padding: 5px
+                border-radius: 5px
+                width: 34px
+                height: 32px
+
+        .qr
+            &-wrap
+                max-width: 305px
+                margin: 0 auto 12px
+            &__link
+                max-width: 90px
+
+            &-title
+                padding: 10px 0
+                img
+                    max-width: 73px

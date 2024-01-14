@@ -25,6 +25,10 @@
         gap: 24px
         justify-content: flex-end
 
+    .btn
+        padding-left: 60px
+        padding-right: 60px
+
     @media screen and ( max-width: 1500px )
         .container
             max-width: 100%
@@ -54,21 +58,21 @@
         .right
             gap: 10px
             justify-content: flex-start
-            width: calc( 100% - 150px )
+            width: 168px
 
         .btn
             min-width: unset
-            font-size: 10px
-            padding: 7px 30px 5px
+            font-size: 12px
+            padding: 10px 42px 8px
             border-width: 1px
             &::before
                 background-size: 15px auto, 6px auto, 15px auto, 6px auto
                 height: calc(100% + 2px)
             &::after
-                width: calc( 100% - 6px )
-                height: calc( 100% - 6px )
+                width: calc( 100% - 8px )
+                height: calc( 100% - 8px )
                 border-width: 1px
 
         .logo
-            max-width: 150px
-            width: 50%
+            width: 150px
+            max-width: 42%

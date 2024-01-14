@@ -10,6 +10,7 @@ $(document).ready(function () {
         dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
+        touchThreshold: 8,
         mobileFirst: true,
         centerPadding: '15px',
         centerMode: true,
@@ -31,6 +32,7 @@ $(document).ready(function () {
         dots: false,
         speed: 600,
         slidesToShow: 3,
+        touchThreshold: 8,
         slidesToScroll: 1,
         centerPadding: '0px',
         responsive: [
@@ -86,10 +88,10 @@ $(document).ready(function () {
     })
 
     $('.dropdown-btn').on('click', function (e) {
-        if ($(this).hasClass('active')) { $('.dropdown-btn').removeClass('active').next().slideUp(); }
+        if ($(this).hasClass('active')) { $('.dropdown-btn').removeClass('active').next().slideUp(300); }
         else {
-            $('.dropdown-btn').removeClass('active').next().slideUp();
-            $(this).toggleClass('active').next().slideToggle();
+            $('.dropdown-btn').removeClass('active').next().slideUp(300);
+            $(this).toggleClass('active').next().slideToggle(300);
         }
     });
 
