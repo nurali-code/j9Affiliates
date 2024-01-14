@@ -39,17 +39,50 @@
     <main class="main">
         <div class="container wrap">
             <div class="col">
-                <h1><mark>Earn BIG</mark> withJ9 Affiliates</h1>
+                <h1><mark>Earn BIG</mark> with J9 Affiliates</h1>
                 <p>Join J9 Affiliates and enjoy exciting casino games and lucrative rewards</p>
+                <img src="img/main-img.jpg" class="main__img" alt="main">
                 <button class="btn cr">BECOME OUR <mark>PARTNER</mark></button>
             </div>
             <div class="col level_up">
+                <p class="level_up__subheading">STREAM WITH J9</p>
                 <h3 class="level_up__heading">LEVEL UP YOUR <br> STREAMING GAME</h3>
                 <img src="img/level_up.jpg" alt="level_up">
                 <button class="btn cr">STREAM WITH J9 <mark>& EARN $$$</mark></button>
             </div>
         </div>
     </main>
+
+    <section class="calculator">
+        <div class="container">
+            <div id="calculator" class="wrap cr">
+                <h2 class="heading cr">Income Calculator</h2>
+                <div class="col">
+                    <div class="row wrap">
+                        <label for="depositSlider">Total Monthly Deposits (KRW):</label>
+                        <span id="depositAmount">13,000,000</span> 
+                        <!-- (0.77 USD for 1000 KRW) -->
+                    </div>
+                    <input type="range" id="depositSlider" min="0" max="300000000" value="13000000" step="100000">
+
+                    <div class="row wrap">
+                        <label for="bettorsSlider">Number of Active Players / Real Bettors:</label>
+                        <span id="bettorsAmount">10</span>
+                    </div>
+                    <input type="range" id="bettorsSlider" min="0" max="30" value="10" step="1">
+
+                </div>
+                <div class="col">
+                    <p class="cr col__heading">Commission <mark>Percentage</mark></p>
+                    <span id="commissionResult">0%</span>
+                    
+                    <p class="cr col__heading">Potential <mark>Income</mark></p>
+                    <p><span id="incomeResult">0</span> / Month</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section class="plans" id="commissions">
         <div class="container">
@@ -449,6 +482,99 @@
             <p>WE WILL GET BACK WITH YOU SHORTLY</p>
         </div>
     </div>
+
+    <script>
+        // Calculate and update the commission and potential income
+        function updateCommissionAndIncome() {
+            var deposit = parseInt(document.getElementById('depositSlider').value, 10);
+            var bettors = parseInt(document.getElementById('bettorsSlider').value, 10);
+            var commissionPercentage = 0;
+
+            // Check the number of bettors and deposit; apply the appropriate commission rate or the previous rate
+            if (bettors < 5) {
+                commissionPercentage = 0; // No commission if less than 5 bettors
+            } else if (deposit <= 10000000) {
+                commissionPercentage = 35; // First bracket rate
+            } else if (deposit <= 200000000) {
+                commissionPercentage = bettors >= 10 ? 40 : 35; // Second bracket rate or fallback to the first bracket
+            } else {
+                commissionPercentage = bettors >= 20 ? 45 : (bettors >= 10 ? 40 : 35); // Third bracket rate, fallback to second or first
+            }
+
+            var income = (deposit * commissionPercentage) / 100;
+
+            document.getElementById('commissionResult').textContent = commissionPercentage + '%';
+            document.getElementById('incomeResult').textContent = income.toLocaleString() + ' KRW';
+            document.getElementById('depositAmount').textContent = deposit.toLocaleString();
+            document.getElementById('bettorsAmount').textContent = bettors;
+        }
+
+        // Event listeners for the sliders
+        document.getElementById('depositSlider').addEventListener('input', updateCommissionAndIncome);
+        document.getElementById('bettorsSlider').addEventListener('input', updateCommissionAndIncome);
+
+        // Initialize the display
+        document.addEventListener('DOMContentLoaded', updateCommissionAndIncome);
+    </script>
+
+
+
+
+    <script>
+        // Define the exchange rate from KRW to USD (this should be updated as per the current exchange rate)
+        const exchangeRate = 0.77 / 1000; // 0.77 USD for 1000 KRW
+
+        // Function to convert KRW to USD for deposit (with cents)
+        function convertDepositKRWtoUSD(krw) {
+            return (krw * exchangeRate).toLocaleString('en-US', { maximumFractionDigits: 2 });
+        }
+
+        // Function to convert KRW to USD for income (without cents)
+        function convertIncomeKRWtoUSD(krw) {
+            return (krw * exchangeRate).toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+
+        // Calculate and update the commission and potential income
+        function updateCommissionAndIncome() {
+            var depositKRW = parseInt(document.getElementById('depositSlider').value, 10);
+            var bettors = parseInt(document.getElementById('bettorsSlider').value, 10);
+            var commissionPercentage = 0;
+
+            if (bettors < 5) {
+                commissionPercentage = 0;
+            } else if (depositKRW <= 10000000) {
+                commissionPercentage = 35;
+            } else if (depositKRW <= 200000000) {
+                commissionPercentage = bettors >= 10 ? 40 : 35;
+            } else {
+                commissionPercentage = bettors >= 20 ? 45 : (bettors >= 10 ? 40 : 35);
+            }
+
+            var incomeKRW = (depositKRW * commissionPercentage) / 100;
+            var depositUSD = convertDepositKRWtoUSD(depositKRW);
+            var incomeUSD = convertIncomeKRWtoUSD(incomeKRW);
+
+            document.getElementById('commissionResult').textContent = commissionPercentage + '%';
+            document.getElementById('incomeResult').textContent = incomeKRW.toLocaleString() + ' KRW / ' + incomeUSD + ' USD';
+            document.getElementById('depositAmount').textContent = depositKRW.toLocaleString() + ' KRW / ' + depositUSD + ' USD';
+            document.getElementById('bettorsAmount').textContent = bettors;
+        }
+
+        // Event listeners for the sliders
+        document.getElementById('depositSlider').addEventListener('input', updateCommissionAndIncome);
+        document.getElementById('bettorsSlider').addEventListener('input', updateCommissionAndIncome);
+
+        // Initialize the display
+        document.addEventListener('DOMContentLoaded', updateCommissionAndIncome);
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCommissionAndIncome();
+        });
+
+
+    </script>
+
 
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="./js/slick.min.js"></script>
