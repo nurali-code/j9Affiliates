@@ -5,13 +5,38 @@
 @import 'modal'
 
 .plans
+    overflow: hidden
     background-repeat: no-repeat
     background-position: center center
     background-size: cover
     background-image: url('../img/plans.jpg')
+    h2
+        margin-bottom: 40px
+
+    @media screen and ( max-width: 1224px )
+        .slick
+            &-slider
+                width: 100vw
+                left: -15px
+
+            &-arrow
+                width: 30px
+                height: 30px
+                background-color: $prime
+                top: 50%
+                bottom: auto
+                margin-top: -19px
+                border-radius: 50%
+                border: none
+
+            &-prev
+                left: 15px
+
+            &-next
+                right: 15px
 
 .plan
-    width: 32.5%
+    width: 31%
     text-align: center
     background: rgba(1, 1, 1, 0.93)
     padding: 0 20px 40px
@@ -19,6 +44,12 @@
     z-index: 1
     overflow: hidden
     transition: all ease .3s
+    margin: 11px 12px
+    &-wrap
+        position: relative
+        left: -12px
+        width: calc( 100% + 22px )
+
     @media screen and ( min-width: 1000px )
         &:hover
             transform: scale(1.04)
@@ -110,14 +141,25 @@
             font-size: 26px
             margin-bottom: 3px
 
+    @media screen and ( max-width: 1224px )
+        width: 76vw
+        margin: 0 10vw
+        display: none
+        &:first-child
+            display: block
+
     @media screen and ( max-width: 900px )
-        width: 48%
+        &::after
+            border-width: 5px
+            width: calc(100% - 10px)
+            height: calc(100% - 10px)
+            top: 0
+            left: 0
         &-wrap
             gap: 40px 4%
             justify-content: center
 
     @media screen and ( max-width: 700px )
-        width: 100%
         &__heading
             width: 200px
         &__text
@@ -127,6 +169,7 @@
     background-color: #121519
     h2
         margin-bottom: 40px
+
     &__heading
         font-size: 40px
         font-weight: 500
@@ -139,6 +182,23 @@
         font-weight: 500
         line-height: 130%
         margin: 0 0 46px
+
+    @media screen and ( max-width: 1500px )
+        &__heading
+            font-size: 30px
+            margin-bottom: 23px
+
+        &__text
+            font-size: 20px
+            margin-bottom: 36px
+
+    @media screen and ( max-width: 900px )
+        &__heading
+            font-size: 20px
+            margin-bottom: 16px
+        &__text
+            font-size: 15px
+            margin-bottom: 13px
 
 .ussers
     &-wrap
@@ -162,10 +222,30 @@
         &::after
             display: none
 
+    @media screen and ( max-width: 1500px )
+        &-item
+            font-size: 18px
+
+    @media screen and ( max-width: 1100px )
+        &-wrap
+            padding-top: 0
+            gap: 12px 2%
+
+        &-item
+            width: 49%
+            max-width: unset
+            &:last-child
+                width: 100%
+
+    @media screen and ( max-width: 1100px )
+        &-item
+            font-size: 15px
+
 .features
     &-wrap
         justify-content: center
         padding-top: 55px
+
     &-item
         text-align: center
         padding: 10px 40px
@@ -181,15 +261,40 @@
         span
             opacity: .5
             font-size: 21px
+            line-height: 120%
+
+    @media screen and ( max-width: 1500px )
+        &-wrap
+            padding-top: 20px
+            border-bottom: 1px solid $prime
+            align-items: stretch
+
+        &-item
+            padding: 16px
+            width: 50%
+            border-width: 1px
+            border-top: 1px solid $prime !important
+            &:nth-child(2)
+                border-right: none
+
+            span
+                font-size: 20px
+
+    @media screen and ( max-width: 700px )
+        &-item
+            b
+                font-size: 18px
+
+            span
+                font-size: 14px
 
 .bg
-    background-image: url('../img/bg.jpg')
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: cover
-    padding-bottom: 50px
-
-
+    @media screen and ( min-width: 900px )
+        background-image: url('../img/bg.jpg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: cover
+        padding-bottom: 50px
 
 .providers
     &-wrap
@@ -223,17 +328,79 @@
             display: block
             margin: 0 auto
 
+        @media screen and ( min-width: 1000px )
+            transition: all ease .3s
+            &:hover
+                box-shadow: 0px 5px 30px -5px rgba($prime, .5)
+
+    @media screen and ( max-width: 900px )
+        h2
+            margin-bottom: 30px
+
+        &-list
+            width: 100vw
+            position: relative
+            // align-items: center
+            left: -15px
+            flex-wrap: nowrap
+            overflow-x: scroll
+            padding: 10px 23px 20px
+            gap: 0 7px
+
+        li
+            max-width: unset
+            width: 220px
+            min-width: 220px
+            height: unset
+            padding: 6px 10px
+            border-radius: 3px
+            &:first-child
+                height: 80px
+
+        &-wrap
+            display: block
+            .video
+                margin-top: 10px
+                border-radius: 0
+                border-top: 1px solid $prime
+                padding: 16px 0
+                width: 100%
+
+            video
+                position: relative
+                left: -15px
+                width: 100vw
+
 .testimonial
-    width: 95%
-    max-width: 1640px
-    margin: 0 auto
-    padding: 45px 0
-    background: linear-gradient(270deg, rgba(18, 21, 29, 0.80) 0.07%, rgba(15, 16, 18, 0.80) 16.71%, rgba(15, 16, 18, 0.80) 74.43%, rgba(19, 22, 29, 0.80) 99.91%)
-    h2 
+    overflow: hidden
+    padding: 0 0 45px
+    @media screen and ( min-width: 900px )
+        width: 95%
+        max-width: 1640px
+        margin: 0 auto
+        background: linear-gradient(270deg, rgba(18, 21, 29, 0.80) 0.07%, rgba(15, 16, 18, 0.80) 16.71%, rgba(15, 16, 18, 0.80) 74.43%, rgba(19, 22, 29, 0.80) 99.91%)
+
+    h2
         margin-bottom: 28px
+
     &-slider
         gap: 38px
         flex-wrap: nowrap
+        width: calc( 100% + 38px )
+        left: -19px
+
+    .slick
+        &-slider
+            padding-bottom: 74px
+
+        &-arrow
+            bottom: 0
+
+        &-prev
+            left: calc( 50% - 50px )
+
+        &-next
+            right: calc( 50% - 50px )
 
 .offers
     background: linear-gradient(270deg, #12151D 0.07%, #0F1012 16.71%, #0F1012 74.43%, #13161D 99.91%)
@@ -251,6 +418,9 @@
     display: flex
     flex-direction: column
     justify-content: flex-end
+    &:hover
+        @media screen and ( min-width: 1000px )
+            transform: translateY(-10px)
     &::before,
     &::after
         content: ''
@@ -390,6 +560,7 @@
     border-top: 5px solid #2E2816
     border-bottom: 5px solid #2E2816
     background: linear-gradient(180deg, rgba(167, 108, 10, 0.02) 0%, rgba(253, 249, 192, 0.21) 100%)
+    margin: 0 19px
     &::after
         content: ''
         display: block
@@ -424,14 +595,31 @@
         padding-bottom: 10px
         border-bottom: 1px solid $prime
 
+    @media screen and ( max-width: 700px )
+        text-align: center
+        &::after
+            background-position: center bottom 20px
+        &-header
+            display: block
+            text-align: center
+            margin-bottom: 11px
+            img
+                display: block
+                margin: 0 auto 5px
+
+        &__text
+            padding-bottom: 16px
+
 .faq
     background-color: #121519
     h2
         margin-bottom: 32px
 
     &-wrap
-        gap: 32px 0
-        align-items: stretch
+        align-items: flex-start
+
+    .col
+        width: 49%
 
     &__textline
         font-size: 20px
@@ -440,8 +628,8 @@
         margin: 0 0 50px
 
     @media screen and ( max-width: 900px )
-        &-wrap
-            gap: 17px 0
+        .col
+            width: 100%
 
         h2
             margin-bottom: 12px
@@ -451,9 +639,10 @@
             margin-bottom: 30px
 
 .dropdown
-    width: 48%
+    width: 100%
     border-radius: 10px
     border: 2px solid #2E2816
+    margin-bottom: 32px
     &-btn
         cursor: pointer
         font-size: 20px
@@ -472,11 +661,8 @@
         opacity: .8
         font-weight: 300
 
-    @media screen and ( max-width: 1500px )
-        width: 49%
-
     @media screen and ( max-width: 900px )
-        width: 100%
+        margin-bottom: 17px
 
     @media screen and ( max-width: 700px )
         &-btn

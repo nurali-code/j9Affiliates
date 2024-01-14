@@ -156,9 +156,6 @@ ul
 .nowrap
     white-space: nowrap
 
-.video
-    position: relative
-    z-index: 1
 video
     display: block
     width: 100%
@@ -174,6 +171,8 @@ video
     z-index: 1
     width: 200px
     height: 200px
+    max-width: 20vw
+    max-height: 20vw
     border-radius: 20px
     background-color: transparent
     background-image: url('../img/play.png')
@@ -183,9 +182,16 @@ video
     &:active
         transform: translate(-50%,-50%) scale(.95)
 
-.full
-    video
-        aspect-ratio: 19/8
+.video
+    position: relative
+    z-index: 1
+    &.full
+        video
+            aspect-ratio: 16/7
+
+        @media screen and ( max-width: 700px )
+            video
+                aspect-ratio: 16/8
 
 .select
     display: inline-block

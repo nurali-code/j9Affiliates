@@ -4,24 +4,46 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top, }, 300,)
     });
 
-    // $('.direction-slider').slick({
-    //     arrows: false,
-    //     infinite: true,
-    //     dots: true,
-    //     speed: 600,
-    //     slidesToShow: 1,
-    //     centerPadding: '0px',
-    //     autoplay: true,
-    //     autoplaySpeed: 3000,
-    //     centerMode: true,
-    //     mobileFirst: true,
-    //     responsive: [
-    //         {
-    //             breakpoint: 1000,
-    //             settings: "unslick",
-    //         },
-    //     ]
-    // });
+    $('.plan-wrap').slick({
+        arrows: true,
+        infinite: false,
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        mobileFirst: true,
+        centerPadding: '15px',
+        centerMode: true,
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 1224,
+                settings: {
+                    slidesToShow: 3,
+                    adaptiveHeight: false
+                }
+            },
+        ]
+    });
+
+    $('.testimonial-slider').slick({
+        arrows: true,
+        infinite: true,
+        dots: false,
+        speed: 600,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerPadding: '0px',
+        responsive: [
+            {
+                breakpoint: 1224,
+                settings: { slidesToShow: 2 }
+            },
+            {
+                breakpoint: 700,
+                settings: { slidesToShow: 1 }
+            },
+        ]
+    });
 
 
     $(function () {
