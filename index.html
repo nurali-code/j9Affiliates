@@ -55,31 +55,47 @@
 
     <section class="calculator">
         <div class="container">
-            <div id="calculator" class="wrap cr">
-                <h2 class="heading cr">Income Calculator</h2>
-                <div class="col">
-                    <div class="row wrap">
-                        <label for="depositSlider">Total Monthly Deposits (KRW):</label>
-                        <span id="depositAmount">13,000,000</span> 
-                        <!-- (0.77 USD for 1000 KRW) -->
+            <div id="calculator" class="cr">
+                <h2 class="heading cr">Income <mark>Calculator</mark> </h2>
+                <div class="wrap">
+                    <div class="col">
+                        <div class="col-row">
+                            <div class="row wrap">
+                                <label for="depositSlider">Total Monthly Deposits (KRW):</label>
+                                <span id="depositAmount">13,000,000</span>
+                                <!-- (0.77 USD for 1000 KRW) -->
+                            </div>
+                            <input type="range" id="depositSlider" min="0" max="300000000" value="13000000" step="100000">
+                        </div>
+                        <div class="col-row">
+                            <div class="row wrap">
+                                <label for="bettorsSlider">Number of Active Players / Real Bettors:</label>
+                                <span id="bettorsAmount">10</span>
+                            </div>
+                            <input type="range" id="bettorsSlider" min="0" max="30" value="10" step="1">
+                        </div>
                     </div>
-                    <input type="range" id="depositSlider" min="0" max="300000000" value="13000000" step="100000">
-
-                    <div class="row wrap">
-                        <label for="bettorsSlider">Number of Active Players / Real Bettors:</label>
-                        <span id="bettorsAmount">10</span>
+                    <div class="output">
+                        <div>
+                            <p class="cr col__heading">Commission <mark>Percentage</mark></p>
+                            <span id="commissionResult" class="output__item">0%</span>
+                        </div>
+                        <div>
+                            <p class="cr col__heading">Your <mark>Earnings</mark></p>
+                            <span id="incomeResult">0</span>
+                        </div>
                     </div>
-                    <input type="range" id="bettorsSlider" min="0" max="30" value="10" step="1">
-
                 </div>
-                <div class="col">
-                    <p class="cr col__heading">Commission <mark>Percentage</mark></p>
-                    <span id="commissionResult">0%</span>
-                    
-                    <p class="cr col__heading">Potential <mark>Income</mark></p>
-                    <p><span id="incomeResult">0</span> / Month</p>
-                </div>
-
+            </div>
+            <div class="wrap calculator-pays">
+                <img src="img/pay (1).png" alt="img">
+                <img src="img/pay (2).png" alt="img">
+                <img src="img/pay (3).png" alt="img">
+                <img src="img/pay (4).png" alt="img">
+                <img src="img/pay (5).png" alt="img">
+                <img src="img/pay (6).png" alt="img">
+                <img src="img/pay (7).png" alt="img">
+                <button class="btn cr">SIGN  <mark>UP</mark></button>
             </div>
         </div>
     </section>
@@ -483,42 +499,10 @@
         </div>
     </div>
 
-    <script>
-        // Calculate and update the commission and potential income
-        function updateCommissionAndIncome() {
-            var deposit = parseInt(document.getElementById('depositSlider').value, 10);
-            var bettors = parseInt(document.getElementById('bettorsSlider').value, 10);
-            var commissionPercentage = 0;
 
-            // Check the number of bettors and deposit; apply the appropriate commission rate or the previous rate
-            if (bettors < 5) {
-                commissionPercentage = 0; // No commission if less than 5 bettors
-            } else if (deposit <= 10000000) {
-                commissionPercentage = 35; // First bracket rate
-            } else if (deposit <= 200000000) {
-                commissionPercentage = bettors >= 10 ? 40 : 35; // Second bracket rate or fallback to the first bracket
-            } else {
-                commissionPercentage = bettors >= 20 ? 45 : (bettors >= 10 ? 40 : 35); // Third bracket rate, fallback to second or first
-            }
-
-            var income = (deposit * commissionPercentage) / 100;
-
-            document.getElementById('commissionResult').textContent = commissionPercentage + '%';
-            document.getElementById('incomeResult').textContent = income.toLocaleString() + ' KRW';
-            document.getElementById('depositAmount').textContent = deposit.toLocaleString();
-            document.getElementById('bettorsAmount').textContent = bettors;
-        }
-
-        // Event listeners for the sliders
-        document.getElementById('depositSlider').addEventListener('input', updateCommissionAndIncome);
-        document.getElementById('bettorsSlider').addEventListener('input', updateCommissionAndIncome);
-
-        // Initialize the display
-        document.addEventListener('DOMContentLoaded', updateCommissionAndIncome);
-    </script>
-
-
-
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/script.js"></script>
 
     <script>
         // Define the exchange rate from KRW to USD (this should be updated as per the current exchange rate)
@@ -536,8 +520,8 @@
 
         // Calculate and update the commission and potential income
         function updateCommissionAndIncome() {
-            var depositKRW = parseInt(document.getElementById('depositSlider').value, 10);
-            var bettors = parseInt(document.getElementById('bettorsSlider').value, 10);
+            var depositKRW = parseInt($('#depositSlider').val(), 10);
+            var bettors = parseInt($('#bettorsSlider').val(), 10);
             var commissionPercentage = 0;
 
             if (bettors < 5) {
@@ -554,31 +538,23 @@
             var depositUSD = convertDepositKRWtoUSD(depositKRW);
             var incomeUSD = convertIncomeKRWtoUSD(incomeKRW);
 
-            document.getElementById('commissionResult').textContent = commissionPercentage + '%';
-            document.getElementById('incomeResult').textContent = incomeKRW.toLocaleString() + ' KRW / ' + incomeUSD + ' USD';
-            document.getElementById('depositAmount').textContent = depositKRW.toLocaleString() + ' KRW / ' + depositUSD + ' USD';
-            document.getElementById('bettorsAmount').textContent = bettors;
+            $('#commissionResult').text(commissionPercentage + '%');
+            $('#incomeResult')
+                .html(
+                    '<i>' + incomeUSD + ' USD </i> <i>  ' + incomeKRW.toLocaleString() + ' KRW </i> '
+                );
+            $('#depositAmount').text(depositKRW.toLocaleString() + ' KRW = ' + depositUSD + ' USD');
+            $('#bettorsAmount').text(bettors);
         }
 
         // Event listeners for the sliders
-        document.getElementById('depositSlider').addEventListener('input', updateCommissionAndIncome);
-        document.getElementById('bettorsSlider').addEventListener('input', updateCommissionAndIncome);
+        $('#depositSlider, #bettorsSlider').on('input', updateCommissionAndIncome);
 
         // Initialize the display
-        document.addEventListener('DOMContentLoaded', updateCommissionAndIncome);
-
-
-        document.addEventListener('DOMContentLoaded', function () {
+        $(document).ready(function () {
             updateCommissionAndIncome();
         });
-
-
     </script>
-
-
-    <script src="./js/jquery-3.7.1.min.js"></script>
-    <script src="./js/slick.min.js"></script>
-    <script src="./js/script.js"></script>
 
 </body>
 

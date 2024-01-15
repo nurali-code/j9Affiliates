@@ -219,15 +219,42 @@
                     border-width: 1px
 
 .calculator
-    display: none
-    #calculator 
-        justify-content: space-between
+    h2
+        margin: 0 0 15px
+
+    #calculator
+        text-align: left
+        width: 100%
+        padding: 45px
+        border: none
+        &::before
+            border: none
+            background-image: none
         &::after
-            display: none
+            border: none
+            background-color: transparent
+            background-repeat: no-repeat
+
+        @media screen and ( min-width: 900px )
+            &::before
+                width: 100%
+                height: 100%
+                box-shadow: inset 0 0 0px 23px #23211a
+
+            &::after
+                width: 100%
+                height: 100%
+                border: none
+                background-color: transparent
+                background-image: url("../img/pc-1.svg"),url("../img/pc-2.svg"),url("../img/pc-3.svg"),url("../img/pc-4.svg"), url("../img/b-top.svg"),url("../img/b-right.svg"),url("../img/b-bottom.svg"),url("../img/b-left.svg")
+                background-repeat: no-repeat
+                background-position: left top,right top,right bottom,left bottom, top 10px center, right center, bottom 10px center, left center
 
     .col
-        width: 50%
+        width: 63%
         &__heading
+            font-size: 20px
+            width: 100%
             &::after
                 display: none
 
@@ -250,7 +277,7 @@
             line-height: 130%
 
     input
-        height: 6px
+        height: 12px
         margin: 30px 0
         background-color: #EDBC32
         &::-webkit-slider-thumb
@@ -260,7 +287,7 @@
             height: 40px
             background-color: #A76C0A
             border-radius: 50%
-            box-shadow: 0 0 0 1px #C6C6C6
+            box-shadow: 0 0 0 1px #fff
             cursor: pointer
         &::-moz-range-thumb
             -webkitappearance: none
@@ -269,8 +296,143 @@
             height: 40px
             background-color: #A76C0A
             border-radius: 50%
-            box-shadow: 0 0 0 1px #C6C6C6
+            box-shadow: 0 0 0 1px #fff
             cursor: pointer
+
+    .output
+        width: 374px
+        text-align: center
+        &__item
+            margin-bottom: 35px
+
+        &__item, i
+            color: $prime
+            font-size: 18px
+            font-weight: 500
+            line-height: 130%
+            border-top: 5px solid #2E2816
+            border-bottom: 5px solid #2E2816
+            background: #1C1C1C
+            display: block
+            overflow: hidden
+            position: relative
+            padding: 16px
+            &::before,
+            &::after
+                content: ""
+                display: block
+                width: 105px
+                height: 105px
+                border-radius: 50%
+                background-color: #eab32f
+                position: absolute
+                top: 100%
+                right: -10%
+                filter: blur(38px)
+            &::after
+                left: -10%
+
+        i
+            border: none
+            font-style: normal
+            &::before,
+            &::after
+                top: 130%
+
+    &-pays
+        padding: 38px
+        img
+            width: 60px
+
+        .btn
+            padding-left: 120px
+            padding-right: 120px
+
+    @media screen and ( max-width: 1500px )
+        .row
+            label
+                font-size: 20px
+
+            span
+                font-size: 16px
+
+        .col
+            width: calc( 100% - 444px )
+
+        .output
+            &__item
+                margin-bottom: 25px
+            &__item, i
+                padding: 14px
+
+        #calculator
+            padding: 50px
+            &::after
+                display: none
+
+    @media screen and ( max-width: 900px )
+        h2
+            margin-bottom: 20px
+        
+        #calculator
+            padding: 4px
+            background-color: transparent
+            .wrap
+                display: block
+
+            .col
+                width: 100%
+                &-row
+                    padding: 11px 12px 10px
+                    border-radius: 8px
+                    background: #1C1C1C
+                    margin-bottom: 10px
+
+        .row
+            label
+                font-size: 15px
+                font-weight: 500
+                line-height: 130%
+
+        input
+            height: 8px
+            &::-webkit-slider-thumb
+                width: 26px
+                height: 26px
+            &::-moz-range-thumb
+                width: 26px
+                height: 26px
+
+        .output
+            padding: 14px 0
+            width: 100vw 
+            position: relative
+            left: -19px
+            background: #1C1C1C
+            display: flex
+            justify-content: center
+            gap: 20px
+            &__item
+                border-width: 1px
+            &__item, i 
+                font-size: 15px
+                padding: 5px 
+                &::after
+                    left: -43%
+                &::before
+                    right: -43%
+                    
+
+            div
+                width: 40%
+
+        .col
+            &__heading
+                padding: 8px 8px 6px
+                font-size: 10px
+                font-weight: 500
+                line-height: 120%
+                margin-bottom: 5px
 
 .plans
     overflow: hidden
