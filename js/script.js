@@ -11,7 +11,7 @@ $(document).ready(function () {
     $('.inp-btn').on('click', function (e) {
         var parInp = $(this).parents('.inp-doble');
         $(parInp).find('.inp__main').html($(this).html());
-        $(parInp).find('.inp-content').stop().slideToggle(300);
+        $(parInp).find('.inp-content').slideToggle(300);
     });
 
     $('.main').slick({
@@ -19,6 +19,8 @@ $(document).ready(function () {
         infinite: true,
         dots: false,
         speed: 600,
+        autoplay: true,
+        autoplaySpeed: 2000,
         slidesToShow: 1,
         touchThreshold: 8,
         slidesToScroll: 1,
@@ -49,7 +51,6 @@ $(document).ready(function () {
     });
 
 
-
     $('.testimonial-slider').slick({
         arrows: true,
         infinite: true,
@@ -77,30 +78,23 @@ $(document).ready(function () {
             $('body, .modal').removeClass('active');
         };
 
-        function showModal(id) {
-            $(id).fadeIn(300); $('body').addClass('active');
-        }
+        function showModal(id) { $(id).fadeIn(300); $('body').addClass('active'); }
 
         $('[data-modal]').on('click', function (e) {
             e.preventDefault();
             showModal('#' + $(this).attr("data-modal"));
         });
 
-        $('.modal-close').on('click', () => {
-            hideModals();
-        });
+        $('.modal-close').on('click', () => { hideModals(); });
 
         $(document).on('click', function (e) {
-            if (!(
-                ($(e.target).parents('.modal-content').length) ||
+            if (!(($(e.target).parents('.modal-content').length) ||
                 ($(e.target).parents('.btn').length) ||
-                ($(e.target).hasClass('btnModal')) ||
+                ($(e.target).parents('.inp-doble').length) ||
                 ($(e.target).hasClass('btn')) ||
-                ($(e.target).hasClass('btn-menu')) ||
+                ($(e.target).hasClass('inp-btn')) ||
                 ($(e.target).hasClass('modal-content'))
-            )) {
-                hideModals();
-            }
+            )) { hideModals(); }
         });
     });
 
