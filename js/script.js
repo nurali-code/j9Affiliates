@@ -13,8 +13,18 @@ $(document).ready(function () {
         $(parInp).find('.inp__main').html($(this).html());
         $(parInp).find('.inp-content').stop().slideToggle(300);
     });
-    
 
+    $('.main').slick({
+        arrows: true,
+        infinite: true,
+        dots: false,
+        speed: 600,
+        slidesToShow: 1,
+        touchThreshold: 8,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        centerPadding: '0px',
+    });
 
     $('.plan-wrap').slick({
         arrows: true,
@@ -37,6 +47,8 @@ $(document).ready(function () {
             },
         ]
     });
+
+
 
     $('.testimonial-slider').slick({
         arrows: true,

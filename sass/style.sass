@@ -6,9 +6,33 @@
 @import 'footer'
 
 .main
-    position: relative
-    z-index: 1
     background-color: #000
+    &-item
+        position: relative
+        z-index: 1
+
+    .slick
+        &-arrow
+            display: inline-block
+            top: 50%
+            width: 30px
+            height: 30px
+            background-color: #eab32f
+            top: 50%
+            bottom: auto
+            margin-top: -19px
+            border-radius: 50%
+            border: none
+            background-image: url(../img/slick_arrow-black.svg)
+            z-index: 1
+            box-shadow: 20px 0px 50px 34px #000
+
+        &-prev
+            left: 15px
+
+        &-next
+            right: 15px
+
     .container
         padding-top: 40px
         padding-bottom: 40px
