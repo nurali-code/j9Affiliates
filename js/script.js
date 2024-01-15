@@ -4,6 +4,16 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top, }, 300,)
     });
 
+    $('.select-btn').on('click', function (e) {
+        $('.select-content').slideToggle(300);
+    });
+    $('.inp-btn').on('click', function (e) {
+        $('.inp-content').slideToggle(300);
+        $(this).html()
+        $('.inp__main').html($(this).html())
+    });
+
+
     $('.plan-wrap').slick({
         arrows: true,
         infinite: false,
@@ -47,7 +57,6 @@ $(document).ready(function () {
         ]
     });
 
-
     $(function () {
         function hideModals() {
             $('.modal').fadeOut();
@@ -79,7 +88,6 @@ $(document).ready(function () {
             }
         });
     });
-
 
     $('.btnPlay').on('click', function (e) {
         $(this).fadeOut();

@@ -146,43 +146,6 @@ input, select
         padding: 0 10px
         font-size: 10px
 
-.inp-wrap
-    background-color: #1C1C1C
-    align-items: center
-    padding: 0 20px
-    border-radius: 5px
-    border-top: 4px solid #2E2816
-    border-right: 2px solid #2E2816
-    border-bottom: 4px solid #2E2816
-    border-left: 2px solid #2E2816
-    margin-bottom: 19px
-
-    img
-        width: 30px
-        height: 30px
-        object-fit: contain
-
-    input
-        width: calc( 100% - 30px )
-        margin: 0
-
-    @media screen and ( max-width: 1100px )
-        border-radius: 3.036px
-        border-top: 2px solid #2E2816
-        border-right: 1px solid #2E2816
-        border-bottom: 2px solid #2E2816
-        border-left: 1px solid #2E2816
-        background: #1C1C1C
-        margin-bottom: 7px
-    @media screen and ( max-width: 700px )
-        padding: 0 14px
-        img
-            width: 21px
-            height: 21px
-
-        input
-            width: calc( 100% - 21px )
-
 textarea
     font-size: 17px
     font-weight: 300
@@ -268,20 +231,171 @@ video
 
 .select
     display: inline-block
+    position: relative
+    z-index: 1111
+    &-content
+        display: none
+        border-radius: 0 0 10px 10px
+        background: #181818
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        z-index: 1111
+        padding: 5px 0
+
     img
         display: block
         width: 100%
         aspect-ratio: 1/1
+        border-radius: 50%
 
-    .option
-        display: none
+    &-btn
+        padding: 6px
         width: 55px
-        &.active
-            display: block
+        border-radius: 50%
+        margin: 0
+        display: block
+
+    &__main
+        padding: 0
+        display: block
+
+.inp
+    &-wrap
+        background-color: #1C1C1C
+        align-items: center
+        padding: 0 20px
+        border-radius: 5px
+        border-top: 4px solid #2E2816
+        border-right: 2px solid #2E2816
+        border-bottom: 4px solid #2E2816
+        border-left: 2px solid #2E2816
+        margin-bottom: 19px
+
+        img
+            width: 30px
+            height: 30px
+            object-fit: contain
+
+        input
+            width: calc( 100% - 30px )
+            margin: 0
+
+        @media screen and ( max-width: 1100px )
+            border-radius: 3.036px
+            border-top: 2px solid #2E2816
+            border-right: 1px solid #2E2816
+            border-bottom: 2px solid #2E2816
+            border-left: 1px solid #2E2816
+            background: #1C1C1C
+            margin-bottom: 7px
+        @media screen and ( max-width: 700px )
+            padding: 0 14px
+            img
+                width: 21px
+                height: 21px
+
+            input
+                width: calc( 100% - 21px )
+
+    &-doble
+        margin-bottom: 19px
+        flex-wrap: nowrap
+        gap: 19px
+        .inp-wrap
+            padding: 0
+            width: 65%
+            margin: 0
+            input
+                width: 100%
+
+        @media screen and ( max-width: 1100px )
+            margin-bottom: 7px
+
+    &-drop
+        position: relative
+        z-index: 1
+        min-width: 220px
+        width: 30%
+        display: inline-block
+        border-radius: 5px
+        border-top: 4px solid #2E2816
+        border-right: 2px solid #2E2816
+        border-bottom: 4px solid #2E2816
+        border-left: 2px solid #2E2816
+        background-color: #1C1C1C
+
+    &-btn
+        padding: 16px 57px 16px 24px
+        display: flex
+        gap: 19px
+        align-items: center
+        color: rgba(255, 255, 255, .5)
+        font-size: 17px
+        font-weight: 300
+        line-height: 130%
+        background-repeat: no-repeat
+        background-size: 20px auto
+        background-position: center right 20px
+        cursor: pointer
+        img
+            width: 30px
+            height: 30px
+            object-fit: contain
+
+        input
+            display: none
+
+    &__main
+        background-image: url('../img/arrow_down.svg')
+
+    &-content
+        display: none
+        position: absolute
+        top: 100%
+        left: 0
+        background-color: #1c1c1c
+        width: 100%
+
+    @media screen and ( max-width: 700px )
+        &-doble
+            gap: 10px
+            margin-bottom: 7px
+            .inp-wrap
+                width: calc( 100% - 138px )
+        &-drop
+            min-width: 127px
+            border-radius: 3px
+            border-top: 2px solid #2e2816
+            border-right: 1px solid #2e2816
+            border-bottom: 2px solid #2e2816
+            border-left: 1px solid #2e2816
+        &-btn
+            gap: 11px
+            font-size: 10px
+            padding: 10px 34px 10px 14px
+            background-size: 12px auto
+            background-position: center right 10px
+            img
+                width: 21px
+                height: 21px
+
+form
+    .btn
+        width: 100%
+        padding: 19px 30px 18px
+        &::after
+            border: none
+
+    @media screen and ( max-width: 700px )
+        .btn
+            font-size: 18px
+            padding: 12px 30px 10px
 
 @media screen and ( max-width: 1250px )
     .select
-        .option
+        &-btn
             width: 45px
 
 @media screen and ( max-width: 1000px )
@@ -290,8 +404,13 @@ video
 
 @media screen and ( max-width: 700px )
     .select
-        .option
+        &-btn
             width: 25px
+            padding: 2px
+
+        &__main
+            img
+                border: 1px solid $prime
 
     h2,.h2
         font-size: 16px

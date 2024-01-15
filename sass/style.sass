@@ -248,7 +248,8 @@
                 background-color: transparent
                 background-image: url("../img/pc-1.svg"),url("../img/pc-2.svg"),url("../img/pc-3.svg"),url("../img/pc-4.svg"), url("../img/b-top.svg"),url("../img/b-right.svg"),url("../img/b-bottom.svg"),url("../img/b-left.svg")
                 background-repeat: no-repeat
-                background-position: left top,right top,right bottom,left bottom, top 10px center, right center, bottom 10px center, left center
+                background-size: 80px auto, 80px auto, 80px auto, 80px auto, auto, auto, auto, auto
+                background-position: left top,right top,right bottom,left bottom, top 8px center, right center, bottom 8px center, left center
 
     .col
         width: 63%
@@ -433,6 +434,19 @@
                 font-weight: 500
                 line-height: 120%
                 margin-bottom: 5px
+
+        &-pays
+            padding: 0
+            justify-content: center
+            gap: 16px
+            max-width: 340px 
+            margin: 14px auto 0 
+            img 
+                width: 26px
+
+            .btn 
+                padding-left: 60px
+                padding-right: 60px
 
 .plans
     overflow: hidden
@@ -1117,12 +1131,6 @@
     @media screen and ( min-width: 1100px  )
         background-color: #100C09
 
-    .btn
-        width: 100%
-        padding: 19px 30px 18px
-        &::after
-            border: none
-
     .col
         width: 55%
         &:first-child
@@ -1209,10 +1217,6 @@
             &__heading
                 font-size: 9px
                 margin-bottom: 20px
-
-        .btn
-            font-size: 18px
-            padding: 12px 30px 10px
 
         .social
             padding: 10px 0

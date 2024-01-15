@@ -1,5 +1,5 @@
 .modal
-    display: none
+    // display: none
     position: fixed
     top: 0
     left: 0
@@ -10,21 +10,25 @@
     padding: 0
     box-sizing: border-box
     &-content
+        background-color: rgba(#121112, 1)
         width: 94%
         min-height: 100px
-        max-height: 98%
+        max-height: 99%
         display: block
         position: absolute
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
-        background-color: #fff
-        max-width: 530px
-        overflow-y: scroll
-        color: #000
+        max-width: 730px
+        // overflow-y: scroll
+        color: #fff
         text-align: left
-        padding: 50px
+        padding: 40px
         border-radius: 24px
+        text-align: center
+        border-radius: 17px
+        border: 1px solid $prime
+
         -ms-overflow-style: none
         scrollbar-width: none
         &::-webkit-scrollbar
@@ -32,25 +36,33 @@
             width: 0
             height: 0
 
+        h2
+            margin-bottom: 20px
+
         @media screen and ( max-width: 700px )
             padding: 30px
 
-    .btn 
+    .btn
         width: 100%
         margin-bottom: 16px
 
     &-close
         position: absolute
         top: 18px
-        right: 22px
+        right: -42px
         border-radius: 50%
         font-size: 29px
+        border: 2px solid #fff
         background-color: rgba(#000, .1)
-        color: #000
+        color: #fff
         width: 32px
         height: 32px
         line-height: 30px
 
-    
+    @media screen and ( max-width: 1000px )
+        &-close
+            top: -48px
+            right: 12px
 
-    
+        &-content
+            padding: 18px
