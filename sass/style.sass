@@ -374,7 +374,7 @@
     @media screen and ( max-width: 900px )
         h2
             margin-bottom: 20px
-        
+
         #calculator
             padding: 4px
             background-color: transparent
@@ -406,7 +406,7 @@
 
         .output
             padding: 14px 0
-            width: 100vw 
+            width: 100vw
             position: relative
             left: -19px
             background: #1C1C1C
@@ -415,14 +415,13 @@
             gap: 20px
             &__item
                 border-width: 1px
-            &__item, i 
+            &__item, i
                 font-size: 15px
-                padding: 5px 
+                padding: 5px
                 &::after
                     left: -43%
                 &::before
                     right: -43%
-                    
 
             div
                 width: 40%
@@ -439,12 +438,12 @@
             padding: 0
             justify-content: center
             gap: 16px
-            max-width: 340px 
-            margin: 14px auto 0 
-            img 
+            max-width: 340px
+            margin: 14px auto 0
+            img
                 width: 26px
 
-            .btn 
+            .btn
                 padding-left: 60px
                 padding-right: 60px
 
@@ -1166,25 +1165,6 @@
             .col__heading
                 margin: 0
 
-    .social
-        text-align: center
-        a
-            width: 66px
-            height: 64px
-            padding: 10px
-            display: inline-block
-            border-radius: 11px
-            border: 2px solid #E5BD8D
-            background: rgba(34, 38, 50, 0)
-            &:hover
-                background: rgba(34, 38, 50, 1)
-
-        img
-            display: block
-            margin: 0 auto
-            max-width: 100%
-            max-height: 100%
-
     @media screen and ( max-width: 1500px )
         .col
             &__heading
@@ -1242,3 +1222,35 @@
                 padding: 10px 0
                 img
                     max-width: 73px
+
+.social
+    text-align: center
+    a
+        width: 66px
+        height: 64px
+        padding: 10px
+        display: inline-block
+        border-radius: 11px
+        border: 2px solid #E5BD8D
+        background: rgba(34, 38, 50, 0)
+        &:hover
+            background: rgba(34, 38, 50, 1)
+
+    img
+        display: block
+        margin: 0 auto
+        max-width: 100%
+        max-height: 100%
+
+    @media screen and ( max-width: 700px )
+        padding: 10px 0
+        justify-content: center
+        gap: 11px
+        border-top: 1px solid rgba($prime, .5)
+        border-bottom: 1px solid rgba($prime, .5)
+        a
+            border-width: 1px
+            padding: 5px
+            border-radius: 5px
+            width: 34px
+            height: 32px

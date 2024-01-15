@@ -33,7 +33,7 @@
                         <a href="#" class="select-btn"><img src="img/jp.png" alt="img"></a>
                     </div>
                 </div>
-                <a href="#" class="btn cr">SIGN <mark>UP</mark> </a>
+                <button data-modal="modal" class="btn cr">SIGN <mark>UP</mark> </button>
             </div>
         </div>
     </header>
@@ -44,13 +44,13 @@
                 <h1><mark>Earn BIG</mark> with J9 Affiliates</h1>
                 <p>Join J9 Affiliates and enjoy exciting casino games and lucrative rewards</p>
                 <img src="img/main-img.jpg" class="main__img" alt="main">
-                <button class="btn cr">BECOME OUR <mark>PARTNER</mark></button>
+                <button data-modal="modal" class="btn cr">BECOME OUR <mark>PARTNER</mark></button>
             </div>
             <div class="col level_up">
                 <p class="level_up__subheading">STREAM WITH J9</p>
                 <h3 class="level_up__heading">LEVEL UP YOUR <br> STREAMING GAME</h3>
                 <img src="img/level_up.jpg" alt="level_up">
-                <button class="btn cr">STREAM WITH J9 <mark>& EARN $$$</mark></button>
+                <button data-modal="modal" class="btn cr">STREAM WITH J9 <mark>& EARN $$$</mark></button>
             </div>
         </div>
     </main>
@@ -91,14 +91,14 @@
                 </div>
             </div>
             <div class="wrap calculator-pays">
+                <img src="img/pay (5).png" alt="img">
+                <img src="img/pay (4).png" alt="img">
+                <img src="img/pay (3).png" alt="img">
+                <img src="img/pay (7).png" alt="img">
                 <img src="img/pay (1).png" alt="img">
                 <img src="img/pay (2).png" alt="img">
-                <img src="img/pay (3).png" alt="img">
-                <img src="img/pay (4).png" alt="img">
-                <img src="img/pay (5).png" alt="img">
                 <img src="img/pay (6).png" alt="img">
-                <img src="img/pay (7).png" alt="img">
-                <button class="btn cr">SIGN <mark>UP</mark></button>
+                <button data-modal="modal" class="btn cr">SIGN <mark>UP</mark></button>
             </div>
         </div>
     </section>
@@ -195,7 +195,7 @@
 
     <div class="video full">
         <button title="play" class="btnPlay"></button>
-        <video src="#" poster="img/poster_2.jpg"></video>
+        <video src="./vid/J9Aff.mp4" poster="img/poster_2.jpg"></video>
     </div>
 
     <section class="offers">
@@ -439,47 +439,47 @@
                 <form action="#">
                     <div class="inp-wrap wrap">
                         <img src="img/Email-ic.png" alt="Email">
-                        <input type="email" placeholder="Email:" required>
+                        <input type="email" name="email" placeholder="Email:" required>
                     </div>
                     <div class="inp-wrap wrap">
                         <img src="img/User.png" alt="Full Name">
-                        <input type="text" placeholder="Full Name:" required>
+                        <input type="text" name="name" placeholder="Full Name:" required>
                     </div>
                     <div class="inp-doble wrap">
                         <div class="inp-drop">
                             <span class="inp-btn inp__main"><img src="img/Telegram-ic.png" alt="Telegram">
                                 Telegram</span>
                             <div class="inp-content">
-                                <label class="inp-btn">
+                                <label for="mess3" class="inp-btn">
                                     <img src="img/skype.png" alt="Skype"> Skype
-                                    <input type="radio" name="Messenger">
+                                    <input id="mess3" type="radio" value="Skype" name="messenger">
                                 </label>
-                                <label class="inp-btn">
+                                <label for="mess31" class="inp-btn">
                                     <img src="img/Telegram-ic.png" alt="Telegram"> Telegram
-                                    <input type="radio" name="Messenger">
+                                    <inpu id="mess31" type="radio" value="Telegram" name="messenger">
                                 </label>
                             </div>
                         </div>
                         <div class="inp-wrap">
-                            <input type="text" placeholder="Enter Your Telegram" required>
+                            <input type="text" placeholder="Enter Your Telegram" name="messenger__link" required>
                         </div>
                     </div>
                     <div class="inp-wrap wrap">
                         <img src="img/MacBook Air.png" alt="Where are you planning to promote">
-                        <input type="text" placeholder="Where are you planning to promote:" required>
+                        <input type="text" name="promote" placeholder="Where are you planning to promote:" required>
                     </div>
                     <div class="inp-wrap wrap">
                         <img src="img/Calculator.png" alt="Your Average Monthly FTD’s">
-                        <input type="text" placeholder="Your Average Monthly FTD’s:" required>
+                        <input type="text" name="ftds" placeholder="Your Average Monthly FTD’s:" required>
                     </div>
-                    <textarea name="messege" rows="10" placeholder="Enter your message here"></textarea>
+                    <textarea name="messege" rows="8" placeholder="Enter your message here"></textarea>
                     <button type="submit" class="btn cr">JOIN <mark>NOW</mark> </button>
                 </form>
             </div>
             <div class="col">
                 <div class="col-img"><img src="img/persons.jpg" alt="persons"></div>
                 <div class="qr-wrap wrap">
-                    <a href="https://t.me/iGamingCOO" target="_blank" class="qr__link"><img src="img/qr.png"
+                    <a href="https://t.me/J9Affiliates" target="_blank" class="qr__link"><img src="img/qr.png"
                             alt="qr"></a>
                     <div class="qr-title">
                         <img src="img/j9.png" alt="j9">
@@ -488,14 +488,20 @@
                 </div>
                 <h3 class="col__heading">Contact us if you have any questions. We’d be to hear from you!</h3>
                 <div class="wrap social">
-                    <a target="_blank" href="https://t.me/iGamingCOO"><img src="img/Telegram App.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/Instagram.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/Facebook Messenger.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/TwitterX.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/Pinterest.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/YouTube.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/LinkedIn.png" alt="link"></a>
-                    <a href="#" target="_blank"><img src="img/Email.png" alt="link"></a>
+                    <a target="_blank" href="https://t.me/J9Affiliates"><img src="img/Telegram App.png" alt="link"></a>
+                    <a href="https://www.instagram.com/J9Affiliates/" target="_blank"><img src="img/Instagram.png"
+                            alt="link"></a>
+                    <a href="https://facebook.com/J9Affiliates" target="_blank"><img src="img/Facebook Messenger.png"
+                            alt="link"></a>
+                    <a href="https://twitter.com/J9Affiliates/" target="_blank"><img src="img/TwitterX.png"
+                            alt="link"></a>
+                    <a href="https://www.pinterest.com/J9Affiliates/" target="_blank"><img src="img/Pinterest.png"
+                            alt="link"></a>
+                    <a href="https://youtube.com/@J9Affiliates" target="_blank"><img src="img/YouTube.png"
+                            alt="link"></a>
+                    <a href="https://linkedin.com/company/J9Affiliates" target="_blank"><img src="img/LinkedIn.png"
+                            alt="link"></a>
+                    <a href="mailto:social@J9Affiliates.com" target="_blank"><img src="img/Email.png" alt="link"></a>
                 </div>
             </div>
         </div>
@@ -520,42 +526,58 @@
             <form action="#">
                 <div class="inp-wrap wrap">
                     <img src="img/Email-ic.png" alt="Email">
-                    <input type="email" placeholder="Email:" required>
+                    <input type="email" name="email" placeholder="Email:" required>
                 </div>
                 <div class="inp-wrap wrap">
                     <img src="img/User.png" alt="Full Name">
-                    <input type="text" placeholder="Full Name:" required>
+                    <input type="text" name="name" placeholder="Full Name:" required>
                 </div>
                 <div class="inp-doble wrap">
                     <div class="inp-drop">
                         <span class="inp-btn inp__main"><img src="img/Telegram-ic.png" alt="Telegram">
                             Telegram</span>
                         <div class="inp-content">
-                            <label class="inp-btn">
+                            <label for="mess" class="inp-btn">
                                 <img src="img/skype.png" alt="Skype"> Skype
-                                <input type="radio" name="Messenger">
+                                <input id="mess" type="radio" value="Skype" name="messenger">
                             </label>
-                            <label class="inp-btn">
+                            <label for="mess2" class="inp-btn">
                                 <img src="img/Telegram-ic.png" alt="Telegram"> Telegram
-                                <input type="radio" name="Messenger">
+                                <input id="mess2" type="radio" value="Telegram" name="messenger">
                             </label>
                         </div>
                     </div>
                     <div class="inp-wrap">
-                        <input type="text" placeholder="Enter Your Telegram" required>
+                        <input type="text" placeholder="Enter Your Telegram" name="messenger__link" required>
                     </div>
                 </div>
                 <div class="inp-wrap wrap">
                     <img src="img/MacBook Air.png" alt="Where are you planning to promote">
-                    <input type="text" placeholder="Where are you planning to promote:" required>
+                    <input type="text" name="promote" placeholder="Where are you planning to promote:" required>
                 </div>
                 <div class="inp-wrap wrap">
                     <img src="img/Calculator.png" alt="Your Average Monthly FTD’s">
-                    <input type="text" placeholder="Your Average Monthly FTD’s:" required>
+                    <input type="text" name="ftds" placeholder="Your Average Monthly FTD’s:" required>
                 </div>
-                <textarea name="messege" rows="7" placeholder="Enter your message here"></textarea>
+                <textarea name="messege" rows="8" placeholder="Enter your message here"></textarea>
                 <button type="submit" class="btn cr">JOIN <mark>NOW</mark> </button>
             </form>
+        </div>
+    </div>
+
+    <div class="modal" id="thanks">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img src="img/check.png" class="modal__img" alt="check">
+            <h2 class="heading">
+                <mark> THANK YOU FOR</mark> YOUR APPLICATION
+            </h2>
+            <p class="modal__descr">WE WILL GET BACK WITH YOU SHORTLY</p>
+            <div class="wrap social">
+                <a target="_blank" href="https://t.me/J9Affiliates"><img src="img/Telegram App.png" alt="link"></a>
+                <a href="https://facebook.com/J9Affiliates" target="_blank"><img src="img/Facebook Messenger.png"
+                        alt="link"></a>
+            </div>
         </div>
     </div>
 

@@ -1,5 +1,5 @@
 .modal
-    // display: none
+    display: none
     position: fixed
     top: 0
     left: 0
@@ -42,6 +42,22 @@
         @media screen and ( max-width: 700px )
             padding: 30px
 
+    &__descr
+        color: $prime
+
+    &__img
+        position: absolute
+        top: -30px
+        transform: translateX(-50%)
+
+    .social
+        justify-content: center
+        gap: 12px
+        padding-top: 16px
+        border-top: 1px solid $prime
+        margin-top: 12px
+        border-bottom: none !important
+
     .btn
         width: 100%
         margin-bottom: 16px
@@ -58,6 +74,25 @@
         width: 32px
         height: 32px
         line-height: 30px
+
+    &#thanks
+        h2 
+            font-size: 30px
+            font-weight: 800
+            margin-bottom: 10px
+        .modal
+            &-content
+                max-width: 430px
+                padding-top: 80px
+
+            &__img 
+                width: 94px
+                height: 94px
+                object-fit: contain
+
+            &-close
+                top: -50px
+                right: 10px
 
     @media screen and ( max-width: 1000px )
         &-close

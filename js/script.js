@@ -7,11 +7,13 @@ $(document).ready(function () {
     $('.select-btn').on('click', function (e) {
         $('.select-content').slideToggle(300);
     });
+
     $('.inp-btn').on('click', function (e) {
-        $('.inp-content').slideToggle(300);
-        $(this).html()
-        $('.inp__main').html($(this).html())
+        var parInp = $(this).parents('.inp-doble');
+        $(parInp).find('.inp__main').html($(this).html());
+        $(parInp).find('.inp-content').stop().slideToggle(300);
     });
+    
 
 
     $('.plan-wrap').slick({
@@ -60,7 +62,7 @@ $(document).ready(function () {
     $(function () {
         function hideModals() {
             $('.modal').fadeOut();
-            $('body, .header .nav, .btn-menu').removeClass('active');
+            $('body, .modal').removeClass('active');
         };
 
         function showModal(id) {
@@ -79,6 +81,7 @@ $(document).ready(function () {
         $(document).on('click', function (e) {
             if (!(
                 ($(e.target).parents('.modal-content').length) ||
+                ($(e.target).parents('.btn').length) ||
                 ($(e.target).hasClass('btnModal')) ||
                 ($(e.target).hasClass('btn')) ||
                 ($(e.target).hasClass('btn-menu')) ||
@@ -113,7 +116,8 @@ $(document).ready(function () {
             // success: function (response) { alert(response); },
             // error: function (error) { console.error(error); }
         }).done(function () {
-            alert('Спасибо за заявку. Ожидайте с вами свяжется специалист!');
+            $('#modal').fadeOut()
+            $('#thanks').fadeIn()
         }); return false;
     });
 
