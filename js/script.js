@@ -1,4 +1,34 @@
 $(document).ready(function () {
+
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    // Target videos
+    const video1 = $('#videoSection1 video')[0];
+    const video2 = $('#videoSection2 video')[0];
+
+    // Observe videos
+    observer.observe(video1);
+    observer.observe(video2);
+
+    function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // If the video is in view, play it
+                entry.target.play();
+            } else {
+                // If the video is out of view, pause it
+                entry.target.pause();
+            }
+        });
+    }
+
+
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top, }, 300,)
@@ -103,9 +133,12 @@ $(document).ready(function () {
 
     $('.btnPlay').on('click', function (e) {
         $(this).fadeOut();
-        $(this).next('video')[0].play();
-        $(this).next('video').attr('controls', true);
-    })
+        var videoElement = $(this).nextAll('video:first')[0];
+        videoElement.play();
+        videoElement.controls = true;
+        videoElement.muted = false;
+    });
+    
 
     $('.dropdown-btn').on('click', function (e) {
         if ($(this).hasClass('active')) { $('.dropdown-btn').removeClass('active').next().slideUp(300); }
