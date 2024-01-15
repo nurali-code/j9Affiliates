@@ -10,8 +10,10 @@ $(document).ready(function () {
 
     $('.inp-btn').on('click', function (e) {
         var parInp = $(this).parents('.inp-doble');
+        $(parInp).toggleClass('active');
+        if ($(parInp).hasClass('active')) { $(parInp).find('.inp-content').slideDown(300); }
+        else { $(parInp).find('.inp-content').slideUp(300); }
         $(parInp).find('.inp__main').html($(this).html());
-        $(parInp).find('.inp-content').slideToggle(300);
     });
 
     $('.main').slick({
@@ -90,6 +92,7 @@ $(document).ready(function () {
         $(document).on('click', function (e) {
             if (!(($(e.target).parents('.modal-content').length) ||
                 ($(e.target).parents('.btn').length) ||
+                ($(e.target).parents('.inp-btn').length) ||
                 ($(e.target).parents('.inp-doble').length) ||
                 ($(e.target).hasClass('btn')) ||
                 ($(e.target).hasClass('inp-btn')) ||
@@ -113,18 +116,57 @@ $(document).ready(function () {
     });
 
     $("form").submit(function () {
-        // $('form .btn').addClass('loading');
         $.ajax({
             type: "post",
             method: 'post',
             url: "../sendmail.php",
             data: $(this).serialize(),
-            // success: function (response) { alert(response); },
-            // error: function (error) { console.error(error); }
         }).done(function () {
             $('#modal').fadeOut()
             $('#thanks').fadeIn()
         }); return false;
+    });
+
+    const exchangeRate = 0.77 / 1000;
+
+    function convertDepositKRWtoUSD(krw) {
+        return (krw * exchangeRate).toLocaleString('en-US', { maximumFractionDigits: 2 });
+    }
+
+    function convertIncomeKRWtoUSD(krw) {
+        return (krw * exchangeRate).toLocaleString('en-US', { maximumFractionDigits: 0 });
+    }
+
+    function updateCommissionAndIncome() {
+        var depositKRW = parseInt($('#depositSlider').val(), 10);
+        var bettors = parseInt($('#bettorsSlider').val(), 10);
+        var commissionPercentage = 0;
+
+        if (bettors < 5) {
+            commissionPercentage = 0;
+        } else if (depositKRW <= 10000000) {
+            commissionPercentage = 35;
+        } else if (depositKRW <= 200000000) {
+            commissionPercentage = bettors >= 10 ? 40 : 35;
+        } else {
+            commissionPercentage = bettors >= 20 ? 45 : (bettors >= 10 ? 40 : 35);
+        }
+
+        var incomeKRW = (depositKRW * commissionPercentage) / 100;
+        var depositUSD = convertDepositKRWtoUSD(depositKRW);
+        var incomeUSD = convertIncomeKRWtoUSD(incomeKRW);
+
+        $('#commissionResult').text(commissionPercentage + '%');
+        $('#incomeResult')
+            .html(
+                '<i>' + incomeUSD + ' USD </i> <i>  ' + incomeKRW.toLocaleString() + ' KRW </i> '
+            );
+        $('#depositAmount').text(depositKRW.toLocaleString() + ' KRW = ' + depositUSD + ' USD');
+        $('#bettorsAmount').text(bettors);
+    }
+    $('#depositSlider, #bettorsSlider').on('input', updateCommissionAndIncome);
+    $(document).ready(function () {
+        updateCommissionAndIncome();
     });
 
 });

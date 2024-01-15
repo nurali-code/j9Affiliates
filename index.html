@@ -470,14 +470,14 @@
                             <span class="inp-btn inp__main"><img src="img/Telegram-ic.png" alt="Telegram">
                                 Telegram</span>
                             <div class="inp-content">
-                                <label for="mess3" class="inp-btn">
+                                <span for="mess3" class="inp-btn">
                                     <img src="img/skype.png" alt="Skype"> Skype
                                     <input id="mess3" type="radio" value="Skype" name="messenger">
-                                </label>
-                                <label for="mess31" class="inp-btn">
+                                </span>
+                                <span for="mess31" class="inp-btn">
                                     <img src="img/Telegram-ic.png" alt="Telegram"> Telegram
                                     <inpu id="mess31" type="radio" value="Telegram" name="messenger">
-                                </label>
+                                </span>
                             </div>
                         </div>
                         <div class="inp-wrap">
@@ -554,18 +554,16 @@
                 </div>
                 <div class="inp-doble wrap">
                     <div class="inp-drop">
-                        <span class="inp-btn inp__main">
-                            <img src="img/Telegram-ic.png" alt="Telegram">
-                            Telegram</span>
+                        <span class="inp-btn inp__main"><img src="img/Telegram-ic.png" alt="Telegram">Telegram</span>
                         <div class="inp-content">
-                            <label for="mess" class="inp-btn">
+                            <span for="mess1" class="inp-btn">
                                 <img src="img/skype.png" alt="Skype"> Skype
-                                <input id="mess" type="radio" value="Skype" name="messenger">
-                            </label>
-                            <label for="mess2" class="inp-btn">
+                                <input id="mess1" type="radio" value="Skype" name="messenger">
+                            </span>
+                            <span for="mess2" class="inp-btn">
                                 <img src="img/Telegram-ic.png" alt="Telegram"> Telegram
                                 <input id="mess2" type="radio" value="Telegram" name="messenger">
-                            </label>
+                            </span>
                         </div>
                     </div>
                     <div class="inp-wrap">
@@ -607,57 +605,6 @@
     <script src="./js/slick.min.js"></script>
     <script src="./js/script.js"></script>
 
-    <script>
-        // Define the exchange rate from KRW to USD (this should be updated as per the current exchange rate)
-        const exchangeRate = 0.77 / 1000; // 0.77 USD for 1000 KRW
-
-        // Function to convert KRW to USD for deposit (with cents)
-        function convertDepositKRWtoUSD(krw) {
-            return (krw * exchangeRate).toLocaleString('en-US', { maximumFractionDigits: 2 });
-        }
-
-        // Function to convert KRW to USD for income (without cents)
-        function convertIncomeKRWtoUSD(krw) {
-            return (krw * exchangeRate).toLocaleString('en-US', { maximumFractionDigits: 0 });
-        }
-
-        // Calculate and update the commission and potential income
-        function updateCommissionAndIncome() {
-            var depositKRW = parseInt($('#depositSlider').val(), 10);
-            var bettors = parseInt($('#bettorsSlider').val(), 10);
-            var commissionPercentage = 0;
-
-            if (bettors < 5) {
-                commissionPercentage = 0;
-            } else if (depositKRW <= 10000000) {
-                commissionPercentage = 35;
-            } else if (depositKRW <= 200000000) {
-                commissionPercentage = bettors >= 10 ? 40 : 35;
-            } else {
-                commissionPercentage = bettors >= 20 ? 45 : (bettors >= 10 ? 40 : 35);
-            }
-
-            var incomeKRW = (depositKRW * commissionPercentage) / 100;
-            var depositUSD = convertDepositKRWtoUSD(depositKRW);
-            var incomeUSD = convertIncomeKRWtoUSD(incomeKRW);
-
-            $('#commissionResult').text(commissionPercentage + '%');
-            $('#incomeResult')
-                .html(
-                    '<i>' + incomeUSD + ' USD </i> <i>  ' + incomeKRW.toLocaleString() + ' KRW </i> '
-                );
-            $('#depositAmount').text(depositKRW.toLocaleString() + ' KRW = ' + depositUSD + ' USD');
-            $('#bettorsAmount').text(bettors);
-        }
-
-        // Event listeners for the sliders
-        $('#depositSlider, #bettorsSlider').on('input', updateCommissionAndIncome);
-
-        // Initialize the display
-        $(document).ready(function () {
-            updateCommissionAndIncome();
-        });
-    </script>
 
 </body>
 
