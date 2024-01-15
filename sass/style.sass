@@ -10,6 +10,8 @@
     &-item
         position: relative
         z-index: 1
+        &__btn
+            display: none
 
     .slick
         &-arrow
@@ -166,6 +168,11 @@
         overflow: hidden
         .container
             display: block
+            text-align: center
+
+        &-item
+            &__btn
+                display: inline-block
 
         .col, .level_up
             width: 100%
@@ -187,7 +194,8 @@
             text-align: left
             padding: 20px
             max-width: 600px
-            margin: 40px auto 0
+            margin: 40px auto 20px
+            position: relative
             &__subheading
                 font-size: 21px
                 font-weight: 600
@@ -211,6 +219,9 @@
                 z-index: -1
                 object-fit: cover
 
+            .btn
+                display: none
+
     @media screen and ( max-width: 700px )
         h1
             font-size: 44px
@@ -223,16 +234,10 @@
         &__img
             margin-bottom: 20px
 
-        .level_up
-            width: 100vw
-            left: -15px
-            &__heading
-                font-size: 20px
-                margin-bottom: 10px
-
-            .btn
-                font-size: 10px
-                padding: 8px 22px 6px
+        &-item
+            &__btn.btn
+                font-size: 14px
+                padding: 12px 32px 10px
                 border-width: 1px
                 &::before
                     background-size: 15px auto, 6px auto, 15px auto, 6px auto
@@ -241,6 +246,19 @@
                     width: calc( 100% - 8px )
                     height: calc( 100% - 8px )
                     border-width: 1px
+
+        .level_up
+            width: 100vw
+            min-height: 172px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            left: -15px
+            &__heading
+                font-size: 20px
+                margin-bottom: 10px
+
+        
 
 .calculator
     h2
