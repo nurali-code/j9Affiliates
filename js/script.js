@@ -40,33 +40,35 @@ $(document).ready(function () {
     $(document).ready(function () {
         updateCommissionAndIncome();
     });
-    
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-    };
 
-    const observer = new IntersectionObserver(handleIntersection, options);
+    if ($(window).width() >= 1000) {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
 
-    // Target videos
-    const video1 = $('#videoSection1 video')[0];
-    const video2 = $('#videoSection2 video')[0];
+        const observer = new IntersectionObserver(handleIntersection, options);
 
-    // Observe videos
-    observer.observe(video1);
-    observer.observe(video2);
+        // Target videos
+        const video1 = $('#videoSection1 video')[0];
+        const video2 = $('#videoSection2 video')[0];
 
-    function handleIntersection(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // If the video is in view, play it
-                entry.target.play();
-            } else {
-                // If the video is out of view, pause it
-                entry.target.pause();
-            }
-        });
+        // Observe videos
+        observer.observe(video1);
+        observer.observe(video2);
+
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // If the video is in view, play it
+                    entry.target.play();
+                } else {
+                    // If the video is out of view, pause it
+                    entry.target.pause();
+                }
+            });
+        }
     }
 
 
