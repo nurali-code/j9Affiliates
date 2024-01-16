@@ -31,7 +31,7 @@ $(document).ready(function () {
         $('#commissionResult').text(commissionPercentage + '%');
         $('#incomeResult')
             .html(
-                '<i>' + incomeUSD + ' USD </i> <i>  ' + incomeKRW.toLocaleString() + ' KRW </i> '
+                '<i>$ ' + incomeUSD + ' </i> <i>  ' + incomeKRW.toLocaleString() + ' KRW </i> '
             );
         $('#depositAmount').text(depositKRW.toLocaleString() + ' KRW = ' + depositUSD + ' USD');
         $('#bettorsAmount').text(bettors);
@@ -93,7 +93,7 @@ $(document).ready(function () {
         dots: false,
         speed: 600,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 1,
         touchThreshold: 8,
         slidesToScroll: 1,
